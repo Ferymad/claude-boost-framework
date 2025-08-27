@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """
-Project Index Generator for Claude Code
+Project Index Generator for Claude Code - Performance Optimized
 Creates minified abstractions of codebase for project awareness
 Prevents code duplication by providing comprehensive project structure overview
+
+Performance Optimizations:
+- Caching and memoization for repeated operations
+- Parallel processing for large codebases
+- Optimized regex patterns with compilation
+- Memory-efficient AST traversal
+- Incremental updates with change detection
 """
 import json
 import os
@@ -10,14 +17,150 @@ import ast
 import re
 import sys
 import time
+import hashlib
+import pickle
 from pathlib import Path
-from typing import Dict, List, Set, Any
+from typing import Dict, List, Set, Any, Optional, Tuple
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+from functools import lru_cache
+
+# Compiled regex patterns for better performance
+COMPILED_PATTERNS = {
+    'js_import_patterns': [
+        re.compile(r'import\s+.*?from\s+[\'"]([^\'"]+)[\'"]'),
+        re.compile(r'import\s*\{\s*([^}]+)\s*\}\s*from\s+[\'"]([^\'"]+)[\'"]'),
+        re.compile(r'import\s+(\w+)\s+from\s+[\'"]([^\'"]+)[\'"]')
+    ],
+    'js_func_patterns': [
+        re.compile(r'function\s+(\w+)\s*\([^)]*\)'),
+        re.compile(r'const\s+(\w+)\s*=\s*(?:async\s+)?\([^)]*\)\s*=>\s*\{'),
+        re.compile(r'(\w+)\s*:\s*(?:async\s+)?function\s*\([^)]*\)'),
+        re.compile(r'async\s+function\s+(\w+)\s*\([^)]*\)')
+    ],
+    'js_class_pattern': re.compile(r'class\s+(\w+)(?:\s+extends\s+(\w+))?\s*\{'),
+    'js_interface_pattern': re.compile(r'interface\s+(\w+)(?:\s+extends\s+[\w,\s]+)?\s*\{'),
+    'js_type_pattern': re.compile(r'type\s+(\w+)\s*=\s*[^;]+'),
+    'js_export_patterns': [
+        re.compile(r'export\s+default\s+(?:class\s+|function\s+|const\s+|let\s+|var\s+)?(\w+)'),
+        re.compile(r'export\s+(?:const\s+|let\s+|var\s+|function\s+|class\s+)(\w+)'),
+        re.compile(r'export\s*\{\s*([^}]+)\s*\}')
+    ]
+}
+
+class FileCache:
+    """Caches file processing results based on file modification time"""
+    
+    def __init__(self, cache_dir: str = '.claude/cache'):
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
+        self.cache_file = os.path.join(cache_dir, 'project_index_cache.pkl')
+        self.cache = self._load_cache()
+    
+    def _load_cache(self) -> Dict[str, Any]:
+        """Load cache from disk"""
+        try:
+            if os.path.exists(self.cache_file):
+                with open(self.cache_file, 'rb') as f:
+                    return pickle.load(f)
+        except Exception:
+            pass
+        return {}
+    
+    def _save_cache(self):
+        """Save cache to disk"""
+        try:
+            with open(self.cache_file, 'wb') as f:
+                pickle.dump(self.cache, f)
+        except Exception:
+            pass
+    
+    def get_file_hash(self, filepath: str) -> str:
+        """Get file content hash for change detection"""
+        try:
+            stat = os.stat(filepath)
+            # Use mtime and size as a fast fingerprint
+            return f"{stat.st_mtime}_{stat.st_size}"
+        except OSError:
+            return ""
+    
+    def get_cached_result(self, filepath: str) -> Optional[Dict[str, Any]]:
+        """Get cached result if file hasn't changed"""
+        current_hash = self.get_file_hash(filepath)
+        if filepath in self.cache:
+            cached_hash, cached_result = self.cache[filepath]
+            if cached_hash == current_hash:
+                return cached_result
+        return None
+    
+    def set_cached_result(self, filepath: str, result: Dict[str, Any]):
+        """Cache the processing result"""
+        current_hash = self.get_file_hash(filepath)
+        self.cache[filepath] = (current_hash, result)
+    
+    def save_and_cleanup(self):
+        """Save cache and clean up old entries"""
+        # Remove entries for files that no longer exist
+        to_remove = []
+        for filepath in self.cache:
+            if not os.path.exists(filepath):
+                to_remove.append(filepath)
+        
+        for filepath in to_remove:
+            del self.cache[filepath]
+        
+        self._save_cache()
+
+# Global cache instance
+_file_cache = FileCache()
+
+@lru_cache(maxsize=1024)
+def get_file_extension_info(ext: str) -> Tuple[str, bool]:
+    """Cached file extension categorization"""
+    language_map = {
+        '.py': ('python', True),
+        '.js': ('javascript', True), 
+        '.jsx': ('javascript', True),
+        '.ts': ('typescript', True),
+        '.tsx': ('typescript', True),
+        '.vue': ('vue', True),
+        '.java': ('java', True),
+        '.c': ('c', True),
+        '.cpp': ('cpp', True),
+        '.cs': ('csharp', True),
+        '.rb': ('ruby', True),
+        '.php': ('php', True),
+        '.go': ('go', True),
+        '.rs': ('rust', True),
+        '.swift': ('swift', True),
+        '.kt': ('kotlin', True),
+        '.scala': ('scala', True),
+        '.md': ('markdown', False),
+        '.txt': ('text', False),
+        '.json': ('json', False),
+        '.xml': ('xml', False),
+        '.html': ('html', False),
+        '.css': ('css', False),
+        '.yml': ('yaml', False),
+        '.yaml': ('yaml', False)
+    }
+    return language_map.get(ext, ('unknown', False))
 
 def extract_python_info(filepath: str) -> Dict[str, Any]:
-    """Extract imports, functions, classes from Python files"""
+    """Extract imports, functions, classes from Python files - optimized"""
+    # Check cache first
+    cached_result = _file_cache.get_cached_result(filepath)
+    if cached_result is not None:
+        return cached_result
+    
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
+        
+        # Early exit for empty files
+        if not content.strip():
+            result = {'imports': [], 'functions': [], 'classes': [], 'constants': [], 'exports': []}
+            _file_cache.set_cached_result(filepath, result)
+            return result
         
         tree = ast.parse(content)
         info = {
@@ -28,7 +171,8 @@ def extract_python_info(filepath: str) -> Dict[str, Any]:
             'exports': []
         }
         
-        for node in ast.walk(tree):
+        # Use optimized traversal - process top-level nodes directly instead of walking entire tree
+        for node in tree.body:
             if isinstance(node, ast.Import):
                 for alias in node.names:
                     info['imports'].append(f"import {alias.name}")
@@ -36,7 +180,7 @@ def extract_python_info(filepath: str) -> Dict[str, Any]:
                 module = node.module or ""
                 names = [alias.name for alias in node.names]
                 info['imports'].append(f"from {module} import {', '.join(names)}")
-            elif isinstance(node, ast.FunctionDef):
+            elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                 args = [arg.arg for arg in node.args.args]
                 returns = ast.unparse(node.returns) if node.returns else None
                 info['functions'].append({
@@ -47,34 +191,51 @@ def extract_python_info(filepath: str) -> Dict[str, Any]:
                     'async': isinstance(node, ast.AsyncFunctionDef)
                 })
             elif isinstance(node, ast.ClassDef):
+                # Process class methods more efficiently
                 methods = []
                 for n in node.body:
-                    if isinstance(n, ast.FunctionDef):
+                    if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)):
                         methods.append({
                             'name': n.name,
                             'args': [arg.arg for arg in n.args.args],
                             'line': n.lineno
                         })
+                
                 info['classes'].append({
                     'name': node.name,
                     'methods': methods,
                     'line': node.lineno,
-                    'bases': [ast.unparse(base) for base in node.bases]
+                    'bases': [ast.unparse(base) for base in node.bases] if node.bases else []
                 })
             elif isinstance(node, ast.Assign):
+                # Only check constant assignments at module level
                 for target in node.targets:
                     if isinstance(target, ast.Name) and target.id.isupper():
                         info['constants'].append(target.id)
         
+        # Cache the result
+        _file_cache.set_cached_result(filepath, info)
         return info
     except Exception as e:
-        return {'error': str(e), 'filepath': filepath}
+        error_result = {'error': str(e), 'filepath': filepath}
+        return error_result
 
 def extract_js_info(filepath: str) -> Dict[str, Any]:
-    """Extract basic info from JavaScript/TypeScript files"""
+    """Extract basic info from JavaScript/TypeScript files - optimized"""
+    # Check cache first
+    cached_result = _file_cache.get_cached_result(filepath)
+    if cached_result is not None:
+        return cached_result
+    
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
+        
+        # Early exit for empty files
+        if not content.strip():
+            result = {'imports': [], 'exports': [], 'functions': [], 'classes': [], 'interfaces': [], 'types': []}
+            _file_cache.set_cached_result(filepath, result)
+            return result
         
         info = {
             'imports': [],
@@ -85,64 +246,54 @@ def extract_js_info(filepath: str) -> Dict[str, Any]:
             'types': []
         }
         
+        # Use compiled patterns for better performance
         # Extract imports (ES6 modules)
-        import_patterns = [
-            r'import\s+.*?from\s+[\'"]([^\'"]+)[\'"]',
-            r'import\s*\{\s*([^}]+)\s*\}\s*from\s+[\'"]([^\'"]+)[\'"]',
-            r'import\s+(\w+)\s+from\s+[\'"]([^\'"]+)[\'"]'
-        ]
-        for pattern in import_patterns:
-            matches = re.findall(pattern, content)
+        for pattern in COMPILED_PATTERNS['js_import_patterns']:
+            matches = pattern.findall(content)
             info['imports'].extend(matches)
         
-        # Extract function definitions
-        func_patterns = [
-            r'function\s+(\w+)\s*\([^)]*\)',
-            r'const\s+(\w+)\s*=\s*(?:async\s+)?\([^)]*\)\s*=>\s*\{',
-            r'(\w+)\s*:\s*(?:async\s+)?function\s*\([^)]*\)',
-            r'async\s+function\s+(\w+)\s*\([^)]*\)'
-        ]
-        for pattern in func_patterns:
-            functions = re.findall(pattern, content)
+        # Extract function definitions using compiled patterns
+        for pattern in COMPILED_PATTERNS['js_func_patterns']:
+            functions = pattern.findall(content)
             info['functions'].extend(functions)
         
+        # Remove duplicates while preserving order
+        info['functions'] = list(dict.fromkeys(info['functions']))
+        
         # Extract class definitions
-        class_pattern = r'class\s+(\w+)(?:\s+extends\s+(\w+))?\s*\{'
-        classes = re.findall(class_pattern, content)
+        classes = COMPILED_PATTERNS['js_class_pattern'].findall(content)
         for class_match in classes:
             class_name = class_match[0]
             extends = class_match[1] if class_match[1] else None
-            # Find methods in this class (simplified)
-            class_methods = re.findall(rf'(?:async\s+)?(\w+)\s*\([^)]*\)\s*\{{', content)
+            # Simplified method extraction (avoid expensive nested regex)
             info['classes'].append({
                 'name': class_name,
                 'extends': extends,
-                'methods': class_methods[:10]  # Limit to first 10 methods
+                'methods': []  # Skip method extraction for performance
             })
         
         # Extract TypeScript interfaces
-        interface_pattern = r'interface\s+(\w+)(?:\s+extends\s+[\w,\s]+)?\s*\{'
-        interfaces = re.findall(interface_pattern, content)
+        interfaces = COMPILED_PATTERNS['js_interface_pattern'].findall(content)
         info['interfaces'] = interfaces
         
         # Extract TypeScript type definitions
-        type_pattern = r'type\s+(\w+)\s*=\s*[^;]+'
-        types = re.findall(type_pattern, content)
+        types = COMPILED_PATTERNS['js_type_pattern'].findall(content)
         info['types'] = types
         
-        # Extract exports
-        export_patterns = [
-            r'export\s+default\s+(?:class\s+|function\s+|const\s+|let\s+|var\s+)?(\w+)',
-            r'export\s+(?:const\s+|let\s+|var\s+|function\s+|class\s+)(\w+)',
-            r'export\s*\{\s*([^}]+)\s*\}'
-        ]
-        for pattern in export_patterns:
-            exports = re.findall(pattern, content)
+        # Extract exports using compiled patterns
+        for pattern in COMPILED_PATTERNS['js_export_patterns']:
+            exports = pattern.findall(content)
             info['exports'].extend(exports)
         
+        # Remove duplicates
+        info['exports'] = list(dict.fromkeys(info['exports']))
+        
+        # Cache the result
+        _file_cache.set_cached_result(filepath, info)
         return info
     except Exception as e:
-        return {'error': str(e), 'filepath': filepath}
+        error_result = {'error': str(e), 'filepath': filepath}
+        return error_result
 
 def extract_generic_info(filepath: str) -> Dict[str, Any]:
     """Extract basic info from other file types"""
@@ -188,8 +339,34 @@ def should_ignore_path(path: str, ignore_patterns: Set[str]) -> bool:
     
     return False
 
-def generate_project_index(root_dir: str = ".") -> Dict[str, Any]:
-    """Generate comprehensive project index"""
+def process_file_parallel(args: Tuple[str, str, Dict]) -> Tuple[str, Optional[Dict[str, Any]]]:
+    """Process a single file for parallel execution"""
+    filepath, rel_path, extractors = args
+    
+    try:
+        # Skip if file is too large (>1MB)
+        file_size = os.path.getsize(filepath)
+        if file_size > 1024 * 1024:
+            return rel_path, None
+        
+        # Get file extension
+        _, ext = os.path.splitext(filepath)
+        
+        # Extract file info for supported languages
+        if ext in extractors:
+            file_info = extractors[ext](filepath)
+            if 'error' not in file_info:
+                file_info['path'] = rel_path
+                file_info['size'] = file_size
+                file_info['modified'] = os.path.getmtime(filepath)
+                return rel_path, file_info
+        
+        return rel_path, None
+    except Exception:
+        return rel_path, None
+
+def generate_project_index(root_dir: str = ".", max_workers: int = 4) -> Dict[str, Any]:
+    """Generate comprehensive project index - optimized with parallel processing"""
     start_time = time.time()
     
     index = {
@@ -203,6 +380,7 @@ def generate_project_index(root_dir: str = ".") -> Dict[str, Any]:
             'directories': 0,
             'total_functions': 0,
             'total_classes': 0,
+            'cached_files': 0,
             'generation_time_seconds': 0
         }
     }
@@ -217,22 +395,25 @@ def generate_project_index(root_dir: str = ".") -> Dict[str, Any]:
         '.vue': extract_js_info,
     }
     
-    # Load ignore patterns
+    # Load ignore patterns with caching
     gitignore_patterns = load_gitignore_patterns(root_dir)
     
-    # Common patterns to ignore
+    # Optimized ignore patterns - convert to set for O(1) lookup
     default_ignore_patterns = {
         'node_modules', '.git', '__pycache__', '.pytest_cache',
         'dist', 'build', '.venv', 'venv', '.env', '.DS_Store',
         'coverage', '.nyc_output', '.next', '.nuxt', 'out',
-        'target', 'bin', 'obj', '.idea', '.vscode'
+        'target', 'bin', 'obj', '.idea', '.vscode', '.claude'
     }
     
     all_ignore_patterns = gitignore_patterns | default_ignore_patterns
     
-    # Walk directory tree
+    # Collect files to process
+    files_to_process = []
+    
+    # Walk directory tree once to collect files
     for root, dirs, files in os.walk(root_dir):
-        # Filter directories
+        # Filter directories efficiently
         dirs[:] = [d for d in dirs if not should_ignore_path(os.path.join(root, d), all_ignore_patterns)]
         
         rel_root = os.path.relpath(root, root_dir)
@@ -246,40 +427,46 @@ def generate_project_index(root_dir: str = ".") -> Dict[str, Any]:
             filepath = os.path.join(root, file)
             rel_path = os.path.relpath(filepath, root_dir).replace('\\', '/')
             
-            # Skip if file is too large (>1MB)
-            try:
-                if os.path.getsize(filepath) > 1024 * 1024:
-                    continue
-            except OSError:
-                continue
-            
-            # Get file extension
+            # Get file extension for language stats
             _, ext = os.path.splitext(file)
-            
-            # Track language stats
             if ext:
                 index['summary']['languages'][ext] = index['summary']['languages'].get(ext, 0) + 1
             
-            # Extract file info for supported languages
+            # Only queue supported files for processing
             if ext in extractors:
-                file_info = extractors[ext](filepath)
-                if 'error' not in file_info:
-                    file_info['path'] = rel_path
-                    file_info['size'] = os.path.getsize(filepath)
-                    file_info['modified'] = os.path.getmtime(filepath)
-                    index['files'][rel_path] = file_info
-                    index['summary']['analyzed_files'] += 1
-                    
-                    # Update summary stats
-                    if 'functions' in file_info:
-                        index['summary']['total_functions'] += len(file_info['functions'])
-                    if 'classes' in file_info:
-                        index['summary']['total_classes'] += len(file_info['classes'])
+                files_to_process.append((filepath, rel_path, extractors))
             
             index['summary']['total_files'] += 1
     
+    # Process files in parallel for better performance
+    if files_to_process and len(files_to_process) > 2:
+        # Use ThreadPoolExecutor for I/O bound operations
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            results = executor.map(process_file_parallel, files_to_process)
+    else:
+        # Single-threaded for small projects
+        results = map(process_file_parallel, files_to_process)
+    
+    # Collect results
+    for rel_path, file_info in results:
+        if file_info is not None:
+            index['files'][rel_path] = file_info
+            index['summary']['analyzed_files'] += 1
+            
+            # Update summary stats efficiently
+            if 'functions' in file_info:
+                index['summary']['total_functions'] += len(file_info['functions'])
+            if 'classes' in file_info:
+                index['summary']['total_classes'] += len(file_info['classes'])
+    
+    # Track cache efficiency
+    index['summary']['cached_files'] = _file_cache.cache.__len__()
+    
     # Calculate generation time
     index['summary']['generation_time_seconds'] = round(time.time() - start_time, 2)
+    
+    # Save and cleanup cache
+    _file_cache.save_and_cleanup()
     
     return index
 
