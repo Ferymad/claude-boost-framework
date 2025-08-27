@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)"
+      "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []
