@@ -30,3 +30,7 @@
 {"timestamp": "2025-08-27T22:44:47.971068", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 1360, "command": "git commit -m \"$(cat <<'EOF'\nAdd Claude Code Boost - Production Ready Package\n\n\ud83d\ude80 Complete implementa"}
 {"timestamp": "2025-08-27T22:44:54.258064", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 95, "command": "git log --oneline -3"}
 {"timestamp": "2025-08-27T22:58:45.141446", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 80, "command": "pwd && ls -la"}
+{"timestamp": "2025-08-27T23:16:21.710336", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 116, "command": "cd claude-boost && npm pack --dry-run"}
+{"timestamp": "2025-08-27T23:16:41.195904", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 650, "command": ""}
+{"timestamp": "2025-08-27T23:17:47.144505", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 11432, "command": ""}
+{"timestamp": "2025-08-27T23:17:54.254182", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 650, "command": ""}
