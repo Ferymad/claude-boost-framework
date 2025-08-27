@@ -3,8 +3,8 @@
 **Transform your AI development workflow from frustrating to phenomenal**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)](https://github.com/user/claude-boost-framework)
-[![Framework Agnostic](https://img.shields.io/badge/Framework-Agnostic-blue.svg)](https://github.com/user/claude-boost-framework)
+[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)](https://github.com/Ferymad/claude-boost-framework)
+[![Framework Agnostic](https://img.shields.io/badge/Framework-Agnostic-blue.svg)](https://github.com/Ferymad/claude-boost-framework)
 
 ## 🎯 One-Line Problem Statement
 
@@ -294,13 +294,13 @@ curl -LsSf https://raw.githubusercontent.com/user/claude-boost-framework/main/in
 ## 🤝 Contributing & Community
 
 ### Contributing
-- 🐛 [Report bugs](https://github.com/user/claude-boost-framework/issues)
-- 💡 [Request features](https://github.com/user/claude-boost-framework/issues)
-- 🛠️ [Submit pull requests](https://github.com/user/claude-boost-framework/pulls)
-- 📖 [Improve documentation](https://github.com/user/claude-boost-framework/tree/main/docs)
+- 🐛 [Report bugs](https://github.com/Ferymad/claude-boost-framework/issues)
+- 💡 [Request features](https://github.com/Ferymad/claude-boost-framework/issues)
+- 🛠️ [Submit pull requests](https://github.com/Ferymad/claude-boost-framework/pulls)
+- 📖 [Improve documentation](https://github.com/Ferymad/claude-boost-framework/tree/main/docs)
 
 ### Community  
-- 💬 [GitHub Discussions](https://github.com/user/claude-boost-framework/discussions)
+- 💬 [GitHub Discussions](https://github.com/Ferymad/claude-boost-framework/discussions)
 - 📧 [Email Support](mailto:support@claude-boost-framework.dev)
 - 🐦 [Twitter Updates](https://twitter.com/claude_boost)
 

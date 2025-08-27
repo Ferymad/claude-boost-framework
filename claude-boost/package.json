@@ -29,12 +29,12 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/user/claude-boost-framework/issues"
+    "url": "https://github.com/Ferymad/claude-boost-framework/issues"
   },
-  "homepage": "https://github.com/user/claude-boost-framework#readme",
+  "homepage": "https://github.com/Ferymad/claude-boost-framework#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/user/claude-boost-framework.git"
+    "url": "git+https://github.com/Ferymad/claude-boost-framework.git"
   },
   "engines": {
     "node": ">=14.0.0"
