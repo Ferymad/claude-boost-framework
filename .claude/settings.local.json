@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

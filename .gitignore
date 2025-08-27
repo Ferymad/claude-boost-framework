@@ -12,7 +12,12 @@ build/
 # Claude Code cache and temporary files
 .claude/cache/
 .claude/state/
+.claude/analytics/
 *.log
+
+# Session metadata (auto-generated)
+metadata/fulltranscript.txt
+metadata/youtube-video-insights.xml
 
 # Environment files
 .env

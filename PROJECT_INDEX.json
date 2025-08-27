@@ -1,18 +1,431 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-27 17:35:19",
-  "files": {},
+  "generated_at": "2025-08-27 18:51:37",
+  "files": {
+    "test_module.py": {
+      "imports": [
+        "import sqlite3",
+        "import re",
+        "from functools import lru_cache",
+        "from typing import Optional, Dict, Pattern"
+      ],
+      "functions": [
+        {
+          "name": "calculate_tax",
+          "args": [
+            "amount",
+            "rate"
+          ],
+          "returns": "Optional[float]",
+          "line": 54,
+          "async": false
+        },
+        {
+          "name": "validate_email",
+          "args": [
+            "email"
+          ],
+          "returns": "Optional[bool]",
+          "line": 70,
+          "async": false
+        },
+        {
+          "name": "format_phone",
+          "args": [
+            "phone"
+          ],
+          "returns": "Optional[str]",
+          "line": 87,
+          "async": false
+        },
+        {
+          "name": "normalize_address",
+          "args": [
+            "address"
+          ],
+          "returns": "Optional[str]",
+          "line": 101,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserManager",
+          "methods": [
+            {
+              "name": "__init__",
+              "args": [
+                "self",
+                "database_url"
+              ],
+              "line": 14
+            },
+            {
+              "name": "_establish_connection",
+              "args": [
+                "self"
+              ],
+              "line": 21
+            },
+            {
+              "name": "authenticate_user",
+              "args": [
+                "self",
+                "username",
+                "password"
+              ],
+              "line": 38
+            },
+            {
+              "name": "create_user",
+              "args": [
+                "self",
+                "user_data"
+              ],
+              "line": 46
+            }
+          ],
+          "line": 11,
+          "bases": []
+        }
+      ],
+      "constants": [
+        "MAX_RETRY_COUNT",
+        "DEFAULT_TIMEOUT",
+        "API_BASE_URL"
+      ],
+      "exports": [],
+      "path": "test_module.py",
+      "size": 4082,
+      "modified": 1756310058.9313216
+    },
+    "test_test_module.py": {
+      "imports": [
+        "import unittest",
+        "import tempfile",
+        "import os",
+        "import sqlite3",
+        "from test_module import UserManager, calculate_tax, validate_email, format_phone"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "TestUserManager",
+          "methods": [
+            {
+              "name": "setUp",
+              "args": [
+                "self"
+              ],
+              "line": 17
+            },
+            {
+              "name": "tearDown",
+              "args": [
+                "self"
+              ],
+              "line": 24
+            },
+            {
+              "name": "test_init_valid_database_url",
+              "args": [
+                "self"
+              ],
+              "line": 31
+            },
+            {
+              "name": "test_init_invalid_database_url",
+              "args": [
+                "self"
+              ],
+              "line": 37
+            },
+            {
+              "name": "test_establish_connection_sqlite",
+              "args": [
+                "self"
+              ],
+              "line": 42
+            },
+            {
+              "name": "test_establish_connection_invalid_url",
+              "args": [
+                "self"
+              ],
+              "line": 49
+            },
+            {
+              "name": "test_authenticate_user_valid_credentials",
+              "args": [
+                "self"
+              ],
+              "line": 55
+            },
+            {
+              "name": "test_authenticate_user_empty_username",
+              "args": [
+                "self"
+              ],
+              "line": 60
+            },
+            {
+              "name": "test_authenticate_user_empty_password",
+              "args": [
+                "self"
+              ],
+              "line": 65
+            },
+            {
+              "name": "test_authenticate_user_none_credentials",
+              "args": [
+                "self"
+              ],
+              "line": 70
+            },
+            {
+              "name": "test_authenticate_user_no_connection",
+              "args": [
+                "self"
+              ],
+              "line": 77
+            },
+            {
+              "name": "test_create_user_valid_data",
+              "args": [
+                "self"
+              ],
+              "line": 83
+            },
+            {
+              "name": "test_create_user_none_data",
+              "args": [
+                "self"
+              ],
+              "line": 89
+            },
+            {
+              "name": "test_create_user_invalid_data_type",
+              "args": [
+                "self"
+              ],
+              "line": 94
+            },
+            {
+              "name": "test_create_user_empty_dict",
+              "args": [
+                "self"
+              ],
+              "line": 99
+            },
+            {
+              "name": "test_create_user_no_connection",
+              "args": [
+                "self"
+              ],
+              "line": 104
+            }
+          ],
+          "line": 14,
+          "bases": [
+            "unittest.TestCase"
+          ]
+        },
+        {
+          "name": "TestCalculateTax",
+          "methods": [
+            {
+              "name": "test_calculate_tax_valid_inputs",
+              "args": [
+                "self"
+              ],
+              "line": 115
+            },
+            {
+              "name": "test_calculate_tax_zero_rate",
+              "args": [
+                "self"
+              ],
+              "line": 126
+            },
+            {
+              "name": "test_calculate_tax_none_amount",
+              "args": [
+                "self"
+              ],
+              "line": 131
+            },
+            {
+              "name": "test_calculate_tax_none_rate",
+              "args": [
+                "self"
+              ],
+              "line": 136
+            },
+            {
+              "name": "test_calculate_tax_both_none",
+              "args": [
+                "self"
+              ],
+              "line": 141
+            },
+            {
+              "name": "test_calculate_tax_invalid_amount_type",
+              "args": [
+                "self"
+              ],
+              "line": 146
+            },
+            {
+              "name": "test_calculate_tax_invalid_rate_type",
+              "args": [
+                "self"
+              ],
+              "line": 154
+            },
+            {
+              "name": "test_calculate_tax_negative_amount",
+              "args": [
+                "self"
+              ],
+              "line": 162
+            },
+            {
+              "name": "test_calculate_tax_negative_rate",
+              "args": [
+                "self"
+              ],
+              "line": 167
+            }
+          ],
+          "line": 112,
+          "bases": [
+            "unittest.TestCase"
+          ]
+        },
+        {
+          "name": "TestValidateEmail",
+          "methods": [
+            {
+              "name": "test_validate_email_valid_addresses",
+              "args": [
+                "self"
+              ],
+              "line": 176
+            },
+            {
+              "name": "test_validate_email_invalid_addresses",
+              "args": [
+                "self"
+              ],
+              "line": 183
+            },
+            {
+              "name": "test_validate_email_empty_string",
+              "args": [
+                "self"
+              ],
+              "line": 191
+            },
+            {
+              "name": "test_validate_email_none_input",
+              "args": [
+                "self"
+              ],
+              "line": 196
+            },
+            {
+              "name": "test_validate_email_invalid_type",
+              "args": [
+                "self"
+              ],
+              "line": 201
+            }
+          ],
+          "line": 173,
+          "bases": [
+            "unittest.TestCase"
+          ]
+        },
+        {
+          "name": "TestFormatPhone",
+          "methods": [
+            {
+              "name": "test_format_phone_valid_inputs",
+              "args": [
+                "self"
+              ],
+              "line": 213
+            },
+            {
+              "name": "test_format_phone_mixed_formatting",
+              "args": [
+                "self"
+              ],
+              "line": 220
+            },
+            {
+              "name": "test_format_phone_none_input",
+              "args": [
+                "self"
+              ],
+              "line": 225
+            },
+            {
+              "name": "test_format_phone_invalid_type",
+              "args": [
+                "self"
+              ],
+              "line": 230
+            },
+            {
+              "name": "test_format_phone_non_digit_characters",
+              "args": [
+                "self"
+              ],
+              "line": 238
+            },
+            {
+              "name": "test_format_phone_empty_string",
+              "args": [
+                "self"
+              ],
+              "line": 246
+            },
+            {
+              "name": "test_format_phone_only_separators",
+              "args": [
+                "self"
+              ],
+              "line": 251
+            }
+          ],
+          "line": 210,
+          "bases": [
+            "unittest.TestCase"
+          ]
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "test_test_module.py",
+      "size": 10382,
+      "modified": 1756308879.7311082
+    }
+  },
   "summary": {
-    "total_files": 5,
-    "analyzed_files": 0,
+    "total_files": 11,
+    "analyzed_files": 2,
     "languages": {
-      ".md": 3,
+      ".md": 5,
+      ".json": 1,
+      ".py": 2,
       ".txt": 1,
       ".xml": 1
     },
     "directories": 1,
-    "total_functions": 0,
-    "total_classes": 0,
-    "generation_time_seconds": 0.0
+    "total_functions": 4,
+    "total_classes": 5,
+    "cached_files": 2,
+    "generation_time_seconds": 0.01
   }
 }
