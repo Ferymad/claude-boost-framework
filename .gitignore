@@ -48,4 +48,12 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-memory:
+
+# Claude Code local files (never commit)
+.claude/settings.local.json
+SESSION_SUMMARY.md
+PROJECT_INDEX.json
+
+# User-specific session data
+.claude/state/last_session.json
+.claude/analytics/usage.jsonl

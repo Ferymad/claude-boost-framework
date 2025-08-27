@@ -13,11 +13,12 @@ setup(
     description="Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/username/claude-boost",
+    url="https://github.com/user/claude-boost-framework",
     project_urls={
-        "Bug Reports": "https://github.com/username/claude-boost/issues",
-        "Source": "https://github.com/username/claude-boost",
-        "Documentation": "https://claude-boost.dev/docs",
+        "Bug Reports": "https://github.com/user/claude-boost-framework/issues",
+        "Source": "https://github.com/user/claude-boost-framework",
+        "Documentation": "https://github.com/user/claude-boost-framework#readme",
+        "Homepage": "https://github.com/user/claude-boost-framework",
     },
     packages=find_packages(),
     classifiers=[

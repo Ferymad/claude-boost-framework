@@ -1,6 +1,6 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-27 20:29:41",
+  "generated_at": "2025-08-27 23:11:43",
   "files": {
     "test_feature.py": {
       "imports": [],
@@ -448,22 +448,146 @@
       "path": "test_test_module.py",
       "size": 10382,
       "modified": 1756308879.7311082
+    },
+    "claude-boost/setup.py": {
+      "imports": [
+        "from setuptools import setup, find_packages",
+        "import os"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "claude-boost/setup.py",
+      "size": 2168,
+      "modified": 1756325573.5243094
+    },
+    "claude-boost/claude_boost/cli.js": {
+      "imports": [],
+      "exports": [],
+      "functions": [
+        "runPythonCLI",
+        "showNodejsHelp"
+      ],
+      "classes": [],
+      "interfaces": [],
+      "types": [],
+      "path": "claude-boost/claude_boost/cli.js",
+      "size": 2684,
+      "modified": 1756320079.02353
+    },
+    "claude-boost/claude_boost/cli.py": {
+      "imports": [
+        "import os",
+        "import sys",
+        "import json",
+        "import shutil",
+        "import subprocess",
+        "from pathlib import Path",
+        "from typing import Dict, List, Optional"
+      ],
+      "functions": [
+        {
+          "name": "print_header",
+          "args": [],
+          "returns": null,
+          "line": 14,
+          "async": false
+        },
+        {
+          "name": "check_claude_code",
+          "args": [],
+          "returns": null,
+          "line": 19,
+          "async": false
+        },
+        {
+          "name": "detect_project_type",
+          "args": [],
+          "returns": null,
+          "line": 35,
+          "async": false
+        },
+        {
+          "name": "get_user_preferences",
+          "args": [],
+          "returns": null,
+          "line": 50,
+          "async": false
+        },
+        {
+          "name": "copy_template_files",
+          "args": [
+            "features"
+          ],
+          "returns": null,
+          "line": 78,
+          "async": false
+        },
+        {
+          "name": "generate_initial_index",
+          "args": [],
+          "returns": null,
+          "line": 131,
+          "async": false
+        },
+        {
+          "name": "show_next_steps",
+          "args": [],
+          "returns": null,
+          "line": 151,
+          "async": false
+        },
+        {
+          "name": "create_gitignore_entry",
+          "args": [],
+          "returns": null,
+          "line": 161,
+          "async": false
+        },
+        {
+          "name": "main",
+          "args": [],
+          "returns": null,
+          "line": 179,
+          "async": false
+        }
+      ],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "claude-boost/claude_boost/cli.py",
+      "size": 7570,
+      "modified": 1756320020.9020295
+    },
+    "claude-boost/claude_boost/__init__.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "claude-boost/claude_boost/__init__.py",
+      "size": 394,
+      "modified": 1756319989.6290727
     }
   },
   "summary": {
-    "total_files": 12,
-    "analyzed_files": 3,
+    "total_files": 22,
+    "analyzed_files": 7,
     "languages": {
-      ".md": 6,
+      ".md": 8,
+      ".py": 6,
       ".json": 1,
-      ".py": 3,
+      ".js": 1,
+      ".ps1": 1,
+      ".sh": 1,
       ".txt": 1,
       ".xml": 1
     },
-    "directories": 1,
-    "total_functions": 7,
+    "directories": 5,
+    "total_functions": 18,
     "total_classes": 5,
-    "cached_files": 3,
+    "cached_files": 7,
     "generation_time_seconds": 0.01
   }
 }
