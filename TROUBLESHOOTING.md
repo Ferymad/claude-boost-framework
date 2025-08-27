@@ -24,7 +24,42 @@ ls -la .claude/hooks/
 
 ## Common Issues
 
-### 1. PROJECT_INDEX.json Not Updating
+### 1. Hook Failures - "python: command not found"
+
+**Symptoms**: 
+- Dashboard shows 0% hook success rate
+- Error messages: "status code 127: /bin/sh: 1: python: not found"
+- PROJECT_INDEX.json not updating automatically
+- Analytics not being collected
+
+**Root Cause**: 
+System has `python3` installed but hooks are configured to use `python` command.
+
+**Solutions**:
+
+1. **Fix hook configuration in settings.json** (RECOMMENDED):
+   ```bash
+   # Edit .claude/settings.json and change all instances of:
+   "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/..."
+   # to:
+   "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/..."
+   ```
+
+2. **Alternative: Reconfigure via /hooks command**:
+   ```bash
+   # Use Claude Code's hook interface
+   claude > /hooks
+   # Remove existing hooks and re-add with python3 command
+   ```
+
+3. **Verify fix worked**:
+   ```bash
+   # Check recent hook executions
+   tail -n 10 .claude/analytics/notifications.log
+   # Should show recent successful executions
+   ```
+
+### 2. PROJECT_INDEX.json Not Updating
 
 **Symptoms**: 
 - Claude creates duplicate code despite existing functionality
@@ -33,10 +68,10 @@ ls -la .claude/hooks/
 
 **Solutions**:
 
-1. **Check hook configuration**:
+1. **Check hook configuration** (after fixing python3 issue above):
    ```bash
    # Verify hooks are properly configured
-   cat .claude/settings.json
+   cat .claude/settings.json | grep python3
    ```
 
 2. **Manually regenerate index**:

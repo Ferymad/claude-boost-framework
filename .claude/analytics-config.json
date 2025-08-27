@@ -1,0 +1,16 @@
+{
+  "success_metrics": {
+    "code_duplication_target": 5,
+    "task_accuracy_target": 95,
+    "context_usage_target": 70,
+    "hook_success_target": 99,
+    "team_adoption_target": 80
+  },
+  "alert_thresholds": {
+    "context_usage_critical": 70,
+    "context_usage_warning": 60,
+    "hook_failure_critical": 5,
+    "validation_failure_warning": 3,
+    "subagent_response_warning": 5000
+  }
+}

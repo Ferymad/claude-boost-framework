@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit-validator.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit-validator.py\""
           }
         ]
       }
@@ -17,11 +17,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/project-indexer.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/project-indexer.py\""
           },
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/token-tracker.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/token-tracker.py\""
           },
           {
             "type": "command",
@@ -34,7 +34,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/token-tracker.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/token-tracker.py\""
           }
         ]
       }
@@ -44,7 +44,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-state-manager.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-state-manager.py\""
           },
           {
             "type": "command",
@@ -58,7 +58,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-state-manager.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-state-manager.py\""
           }
         ]
       }
