@@ -1,0 +1,106 @@
+<claude_code_insights>
+1. Advanced Techniques:
+   - **Project Index System**: Create a PROJECT_INDEX.json file containing minified versions of your entire codebase with UML-style abstractions (import statements, method signatures, return types, dependencies). This is maintained by a hook that updates whenever files change, allowing Claude to understand your entire project structure without overwhelming its context. This prevents the common issue of AI creating duplicate functionality instead of refactoring existing code.
+   
+   - **Thinking Mode Optimization**: Use different thinking modes strategically:
+     - `ultra think` (32K tokens): Reserve for complex initial research, difficult problems where other methods have failed, or broad codebase analysis
+     - `think harder` (16K tokens): For focused analysis tasks
+     - `think hard` (8K tokens): For routine focused tasks
+     - `think` (4K tokens): For simple processing
+     Avoid using ultra think continuously as it leads to variable results and rapid context consumption.
+   
+   - **Subagent Orchestration**: Spawn dedicated subagents for specific tasks, each with their own fresh 200K token context window. This is analogous to a manager delegating focused tasks to team members. Can run up to 10 subagents in parallel, with nested subagents possible through headless Claude Code calls, creating tree-like collaborative structures.
+   
+   - **Blind Validation Pattern**: Implement a "closed-loop" development cycle where one agent writes code and a completely separate "blind validator" sub-agent, with no knowledge of the development process, runs tests and verifies features work as specified. This counteracts the model's tendency to prematurely mark tasks complete.
+   
+   - **Context Preservation Through Files**: Before clearing sessions, have Claude write comprehensive documentation updates, summaries, and next steps to files. After clearing, immediately read these files to maintain continuity. This creates persistent memory across sessions.
+
+2. Best Practices:
+   - **Be the Architect, Not Just the Coder**: Your primary role is system architect and project manager. Spend 60-70% of time in planning and code review phases rather than generation. Create detailed plans including file structure, testing strategies, and validation methods before any coding.
+   
+   - **Context Window as Sacred Workspace**: Treat your context window like a clean workspace - never let it exceed 50% capacity for optimal performance (quality degrades significantly after this point). Clear and restart sessions proactively rather than waiting for the 90% warning.
+   
+   - **Local Documentation Installation**: Install Claude Code Docs locally for instant access to up-to-date documentation without web fetches. This preserves context, speeds up responses, and ensures consistent access to capability information.
+   
+   - **Explicit Honesty Instructions**: Leverage the model's ethical training by adding instructions like "do not say a thing is done if it's not done - that's dishonest" to prevent premature task completion claims.
+   
+   - **Test-Driven Development**: Always close the loop with testing. Define testing plans upfront including specific tools (SMTP servers, Puppeteer, screenshot validation) before implementation. Make verification automated rather than manual.
+
+3. Tips and Tricks:
+   - **Keyboard Optimization Setup**: 
+     - Create alias "C" for Claude with `--dangerously-skip-permissions` flag for YOLO mode (use in VM/sandbox)
+     - Set text replacements: "U" → "ultra think", "W" → "what happened ultra think and make a plan before coding"
+   
+   - **Fresh Command Workflow**: Use sequence of cleanup → clear → fresh to reset context while maintaining project awareness through PROJECT_INDEX and documentation files.
+   
+   - **Slash Docs Usage**: Use `/docs [question]` to query local documentation instead of web fetching, with automatic git pull to ensure up-to-date information.
+   
+   - **Natural Agent Creation**: Use `/agents` command for natural conversation-based system prompt generation - describe what you want in plain language and it generates the necessary prompt.
+   
+   - **Mental Model for Tools**: 
+     - Hooks: Automated background processes invisible to AI's context
+     - Slash commands: User-initiated tools that AI is aware of and can choose to use
+
+4. Common Pitfalls to Avoid:
+   - **Context Rot at 50%**: Quality degrades significantly after 50% context usage (not just at 90%). The model's effective ability to use context diminishes, leading to distracted, lower-quality output.
+   
+   - **Over-Anxious Completion**: Models tend to mark multi-step tasks complete after finishing only part. Always verify with separate validation rather than trusting completion claims.
+   
+   - **Code Duplication in Large Projects**: Without proper project awareness (via PROJECT_INDEX), Claude creates duplicate functionality instead of refactoring. This is the most common failure mode in large projects.
+   
+   - **Ultra Think Overuse**: Using maximum thinking tokens for every prompt rapidly fills context and burns tokens unnecessarily. It's a precision tool, not a hammer.
+   
+   - **Main Context Pollution**: Avoid defining too many persistent sub-agents or slash commands. The model reads all tool descriptions at session start, cluttering its "working memory" before you begin.
+
+5. Insights and Observations:
+   - **Instruction Priority Hierarchy**: Direct commands in prompts have highest priority, followed by slash commands, then project-level claude.md, and finally user-level claude.md instructions. This explains why slash commands are more effective than file-based instructions.
+   
+   - **Context as Email Thread Analogy**: Think of context like a long email thread - the more messages, the harder to maintain focus. System prompts are like sender importance, direct commands have highest priority.
+   
+   - **Miller's Law Application**: Models can only effectively attend to 5-7 chunks of information simultaneously, similar to human working memory limitations. This is why focused, isolated tasks perform better.
+   
+   - **Composability as Superpower**: Claude's ability to spawn versions of itself dynamically enables complex tree-like task structures with nested agents and context sharing - this is its key differentiator.
+   
+   - **Trust but Verify Philosophy**: "I love Claude, but I don't trust Claude" - the model's personality and values are strong, but always implement verification systems rather than accepting claims at face value.
+
+6. Practical Examples:
+   - **Authentication Feature Review**: Spawn subagent with a manifest of authentication-related files to review for inconsistencies, identify repeated code that could be refactored into React hooks, and find other code smells before implementation.
+   
+   - **VM Sandbox Setup**: Run Claude Code in a separate Linux VM on Mac with snapshots for safe YOLO mode operation, allowing full permissions without risking main system.
+   
+   - **Project Indexer for Refactoring**: Before adding features, have a sub-agent analyze the project_index.json to identify existing functionality that can be refactored instead of creating redundant code.
+   
+   - **Local Docs Hook in Action**: When typing `/docs what are sub-agents?`, a hook triggers git pull on local documentation, then the slash command searches the local path, bypassing web search entirely.
+   
+   - **Multi-Phase Authentication**: Use orchestrator agent for planning, specialized subagents for client/backend implementation, separate review agents for code quality, and blind validators for testing.
+
+7. Actionable Lessons:
+   - **Lesson 1: Be the Architect**: Your role is system architect and rigorous project manager. Focus on high-level planning and verification, not just coding.
+   
+   - **Lesson 2: Context is Your Workspace**: Keep it clean like a physical desk. Start new sessions for new tasks to ensure maximum focus and quality "working memory."
+   
+   - **Lesson 3: Automate Your Verification**: Build systems (tests, validation scripts, review agents) that automate verification instead of manual checking. This enables reliable end-to-end workflows.
+   
+   - **Lesson 4: Delegate Ruthlessly**: Any self-contained task requiring deep focus is a sub-agent candidate. This preserves main workspace and enables parallelization.
+   
+   - **Lesson 5: Learn by Interrogating**: Ask Claude how to improve your prompts and what tools it has for problems. This meta-learning is the fastest way to level up.
+   
+   - **Lesson 6: Iterate Through Failure**: When something goes wrong, ask *why* and how to structure requests/environment to prevent future failures. Each mistake is a learning opportunity.
+
+8. AI Coding Best Practices for Claude Code:
+   - **Systematic Planning First**: Start with clear plans defining file structure, testing strategy, and implementation steps in documents *before* any code. Have Claude help create these plans.
+   
+   - **Context Hygiene Discipline**: Liberal use of `/clear` for distinct tasks. Preserve context between sessions via AI-updated plan/documentation files. Think of it as maintaining a clean workspace.
+   
+   - **Isolated Execution Architecture**: Use sub-agents to execute distinct plan parts. Keeps main context clean and allows specialized agents to focus on one thing with fresh context.
+   
+   - **Rigorous Automated Validation**: Never accept output at face value. Implement testing plans and use separate agents for blind validation to ensure code works as intended.
+   
+   - **Strategic Tool Selection**: Understand trade-offs between hooks (invisible background automation) and slash commands (visible user-initiated tools). Build custom toolkit for your specific workflow.
+   
+   - **Progressive Disclosure Strategy**: Start with broad searches/queries, then narrow down. Don't dump everything into context at once - feed information progressively as needed.
+   
+   - **File-Based State Management**: Use the file system as persistent memory between sessions, with structured formats like PROJECT_INDEX for consistency and context preservation.
+   
+   - **Iterative Learning Mindset**: Every failure is an opportunity to ask Claude how to communicate better for desired outcomes. Build your expertise through systematic inquiry about the tool's capabilities.
+</claude_code_insights>
