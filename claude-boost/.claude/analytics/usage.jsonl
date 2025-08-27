@@ -1,0 +1,27 @@
+{"timestamp": "2025-08-27T21:38:41.779201", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 185, "command": "cd claude-boost && find . -name \"*.py\" -o -name \"*.js\" -o -name \"*.md\" -o -name \"*.json\" | grep -v _"}
+{"timestamp": "2025-08-27T21:38:47.989149", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 1324, "command": ""}
+{"timestamp": "2025-08-27T21:40:11.896821", "tool_name": "LS", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 50, "command": ""}
+{"timestamp": "2025-08-27T21:40:17.907826", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 72, "command": ""}
+{"timestamp": "2025-08-27T21:40:22.620289", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 74, "command": ""}
+{"timestamp": "2025-08-27T21:40:28.033676", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 67, "command": ""}
+{"timestamp": "2025-08-27T21:40:40.530586", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 70, "command": ""}
+{"timestamp": "2025-08-27T21:40:46.049286", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 75, "command": ""}
+{"timestamp": "2025-08-27T21:41:26.488868", "tool_name": "MultiEdit", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 6553, "command": ""}
+{"timestamp": "2025-08-27T21:42:00.934107", "tool_name": "MultiEdit", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 5817, "command": ""}
+{"timestamp": "2025-08-27T21:42:31.029221", "tool_name": "MultiEdit", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 5862, "command": ""}
+{"timestamp": "2025-08-27T21:42:59.872129", "tool_name": "MultiEdit", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 5402, "command": ""}
+{"timestamp": "2025-08-27T21:43:22.085708", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 3869, "command": ""}
+{"timestamp": "2025-08-27T21:43:27.526540", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 80, "command": ""}
+{"timestamp": "2025-08-27T21:43:38.196099", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 3899, "command": ""}
+{"timestamp": "2025-08-27T21:43:43.768702", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 77, "command": ""}
+{"timestamp": "2025-08-27T21:44:01.342327", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 7896, "command": ""}
+{"timestamp": "2025-08-27T21:44:06.837970", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 71, "command": ""}
+{"timestamp": "2025-08-27T21:44:20.351987", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 5516, "command": ""}
+{"timestamp": "2025-08-27T21:44:25.240779", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 73, "command": ""}
+{"timestamp": "2025-08-27T21:44:47.696851", "tool_name": "Write", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 8985, "command": ""}
+{"timestamp": "2025-08-27T21:44:58.563289", "tool_name": "LS", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 86, "command": ""}
+{"timestamp": "2025-08-27T21:45:04.772972", "tool_name": "LS", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 50, "command": ""}
+{"timestamp": "2025-08-27T22:42:37.258559", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 95, "command": "git status"}
+{"timestamp": "2025-08-27T22:42:42.321399", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 90, "command": "git diff"}
+{"timestamp": "2025-08-27T22:46:53.510753", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 100, "command": "find . -name \"claude-boost\" -type d"}
+{"timestamp": "2025-08-27T22:47:06.245360", "tool_name": "LS", "hook_event": "PostToolUse", "session_id": "575a2e49-5e51-44d0-be0d-d68e512f6045", "tool_input_size": 35, "command": ""}

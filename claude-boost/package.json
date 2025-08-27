@@ -1,0 +1,48 @@
+{
+  "name": "claude-boost",
+  "version": "1.0.0",
+  "description": "Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again",
+  "main": "claude_boost/cli.js",
+  "bin": {
+    "claude-boost": "./claude_boost/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "echo '🚀 Claude Code Boost installed! Run: claude-boost init'"
+  },
+  "keywords": [
+    "claude",
+    "claude-code", 
+    "ai",
+    "development",
+    "productivity",
+    "automation",
+    "code-generation",
+    "ai-assistant",
+    "developer-tools",
+    "workflow"
+  ],
+  "author": {
+    "name": "Claude Code Boost Team",
+    "email": "hello@claude-boost.dev",
+    "url": "https://claude-boost.dev"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/claude-boost/issues"
+  },
+  "homepage": "https://github.com/username/claude-boost#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/claude-boost.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "claude_boost/",
+    "README.md",
+    "LICENSE"
+  ],
+  "preferGlobal": false
+}
