@@ -1,7 +1,45 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-27 18:51:37",
+  "generated_at": "2025-08-27 20:29:41",
   "files": {
+    "test_feature.py": {
+      "imports": [],
+      "functions": [
+        {
+          "name": "insecure_login",
+          "args": [
+            "username",
+            "password"
+          ],
+          "returns": null,
+          "line": 7,
+          "async": false
+        },
+        {
+          "name": "format_user_data",
+          "args": [
+            "name",
+            "email"
+          ],
+          "returns": null,
+          "line": 18,
+          "async": false
+        },
+        {
+          "name": "test_workflow",
+          "args": [],
+          "returns": null,
+          "line": 32,
+          "async": false
+        }
+      ],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "test_feature.py",
+      "size": 1126,
+      "modified": 1756315061.3425615
+    },
     "test_module.py": {
       "imports": [
         "import sqlite3",
@@ -413,19 +451,19 @@
     }
   },
   "summary": {
-    "total_files": 11,
-    "analyzed_files": 2,
+    "total_files": 12,
+    "analyzed_files": 3,
     "languages": {
-      ".md": 5,
+      ".md": 6,
       ".json": 1,
-      ".py": 2,
+      ".py": 3,
       ".txt": 1,
       ".xml": 1
     },
     "directories": 1,
-    "total_functions": 4,
+    "total_functions": 7,
     "total_classes": 5,
-    "cached_files": 2,
+    "cached_files": 3,
     "generation_time_seconds": 0.01
   }
 }
