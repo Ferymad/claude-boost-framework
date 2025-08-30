@@ -17,20 +17,45 @@ def print_header():
     print("=" * 60)
 
 def check_claude_code():
-    """Check if Claude Code is available"""
+    """Check if Claude Code is available with cross-platform support"""
+    claude_commands = ['claude', 'claude.cmd', 'npx @anthropic-ai/claude-code']
+    
+    for cmd in claude_commands:
+        try:
+            if cmd.startswith('npx'):
+                # Use shell=True for npx commands
+                result = subprocess.run(cmd.split() + ['--version'], 
+                                      capture_output=True, text=True, shell=True, timeout=10)
+            else:
+                result = subprocess.run([cmd, '--version'], 
+                                      capture_output=True, text=True, timeout=10)
+            
+            if result.returncode == 0 and 'Claude Code' in result.stdout:
+                version = result.stdout.strip()
+                print(f"✅ Claude Code installation detected: {version}")
+                return True
+                
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            continue
+        except Exception as e:
+            # Log but continue trying other commands
+            continue
+    
+    # If all detection methods fail, check npm global packages
     try:
-        result = subprocess.run(['claude', '--version'], capture_output=True, text=True)
-        if result.returncode == 0:
-            print("✅ Claude Code installation detected")
+        result = subprocess.run(['npm', 'list', '-g', '--depth=0'], 
+                              capture_output=True, text=True, timeout=10)
+        if result.returncode == 0 and '@anthropic-ai/claude-code' in result.stdout:
+            print("✅ Claude Code installation detected via npm global packages")
             return True
-        else:
-            print("❌ Claude Code not found. Please install Claude Code first:")
-            print("   Visit: https://claude.ai/code")
-            return False
-    except FileNotFoundError:
-        print("❌ Claude Code not found. Please install Claude Code first:")
-        print("   Visit: https://claude.ai/code") 
-        return False
+    except Exception:
+        pass
+    
+    print("❌ Claude Code not found. Please install Claude Code first:")
+    print("   Windows: npm install -g @anthropic-ai/claude-code")
+    print("   macOS/Linux: curl -sSL https://claude.ai/install.sh | bash")
+    print("   Visit: https://claude.ai/code")
+    return False
 
 def detect_project_type():
     """Detect project type based on files present"""
@@ -70,8 +95,13 @@ def get_user_preferences():
     selected_features = {}
     for key, feature in features.items():
         default = "Y" if feature["default"] else "N"
-        response = input(f"  [{default}] {feature['name']} (y/N): ").strip().lower()
-        selected_features[key] = response in ['y', 'yes'] if response else feature["default"]
+        try:
+            response = input(f"  [{default}] {feature['name']} (y/N): ").strip().lower()
+            selected_features[key] = response in ['y', 'yes'] if response else feature["default"]
+        except EOFError:
+            # Non-interactive mode: use defaults
+            print(f"  [AUTO] {feature['name']}: {'Yes' if feature['default'] else 'No'}")
+            selected_features[key] = feature["default"]
     
     return selected_features
 

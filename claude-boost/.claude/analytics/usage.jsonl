@@ -40,7 +40,6 @@
 {"timestamp": "2025-08-27T23:19:32.248269", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 82, "command": "git log --oneline -3"}
 {"timestamp": "2025-08-27T23:19:39.320719", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 132, "command": "git remote set-url origin https://github.com/Ferymad/claude-boost-framework.git"}
 {"timestamp": "2025-08-27T23:22:30.982505", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 92, "command": "gh auth token"}
-{"timestamp": "2025-08-27T23:22:45.775794", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 87, "command": "git push -u origin main"}
 {"timestamp": "2025-08-27T23:24:51.359503", "tool_name": "LS", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 35, "command": ""}
 {"timestamp": "2025-08-27T23:25:03.907033", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 103, "command": "pwd && ls -la | grep claude-boost"}
 {"timestamp": "2025-08-27T23:37:45.197675", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 673, "command": ""}
@@ -51,3 +50,17 @@
 {"timestamp": "2025-08-27T23:37:05.502821", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 681, "command": ""}
 {"timestamp": "2025-08-27T23:37:49.959719", "tool_name": "Edit", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 6652, "command": ""}
 {"timestamp": "2025-08-27T23:37:58.664624", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "94c7a5ec-e826-420e-a2c9-3bcf8659d67e", "tool_input_size": 679, "command": ""}
+{"timestamp": "2025-08-30T15:25:13.261807", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 123, "command": "cd claude-boost && node claude_boost/cli.js --help"}
+{"timestamp": "2025-08-30T15:25:24.371937", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 101, "command": "node claude_boost/cli.js init"}
+{"timestamp": "2025-08-30T15:25:29.885499", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 1232, "command": ""}
+{"timestamp": "2025-08-30T15:25:51.564535", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 73, "command": "ls -la"}
+{"timestamp": "2025-08-30T15:25:55.585035", "tool_name": "Bash", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 94, "command": "npm pack --dry-run"}
+{"timestamp": "2025-08-30T15:27:42.078195", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 531, "command": ""}
+{"timestamp": "2025-08-30T15:33:03.754702", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 669, "command": ""}
+{"timestamp": "2025-08-30T15:31:29.310804", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 774, "command": ""}
+{"timestamp": "2025-08-30T15:32:47.392753", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 800, "command": ""}
+{"timestamp": "2025-08-30T15:34:45.851139", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 922, "command": ""}
+{"timestamp": "2025-08-30T15:38:12.666276", "tool_name": "Read", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 100, "command": ""}
+{"timestamp": "2025-08-30T15:38:25.351632", "tool_name": "Edit", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 2629, "command": ""}
+{"timestamp": "2025-08-30T15:38:30.745080", "tool_name": "Edit", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 144, "command": ""}
+{"timestamp": "2025-08-30T15:38:39.078954", "tool_name": "TodoWrite", "hook_event": "PostToolUse", "session_id": "472b1eb8-7462-4945-b707-aa89d4bf5ef9", "tool_input_size": 1185, "command": ""}

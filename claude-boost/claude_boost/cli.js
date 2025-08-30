@@ -7,9 +7,9 @@ const { spawn } = require('child_process');
 const path = require('path');
 
 function runPythonCLI() {
-    // Try to find Python
-    const pythonCommands = ['python3', 'python'];
-    let pythonCmd = 'python3';
+    // Cross-platform Python detection
+    const isWindows = process.platform === 'win32';
+    const pythonCommands = isWindows ? ['py', 'python', 'python3'] : ['python3', 'python'];
     
     // Get the path to the Python CLI script
     const pythonScript = path.join(__dirname, 'cli.py');
@@ -17,29 +17,32 @@ function runPythonCLI() {
     // Pass through all arguments
     const args = [pythonScript, ...process.argv.slice(2)];
     
+    // Try Python commands in order
+    tryPythonCommand(pythonCommands, args, 0);
+}
+
+function tryPythonCommand(commands, args, index) {
+    if (index >= commands.length) {
+        console.error('❌ Error: Python not found. Please install Python 3.8 or higher.');
+        console.error('   Windows: https://python.org/downloads or Microsoft Store');
+        console.error('   macOS: brew install python3');
+        console.error('   Linux: sudo apt install python3 (or your package manager)');
+        process.exit(1);
+    }
+    
+    const pythonCmd = commands[index];
+    console.log(`🔍 Trying ${pythonCmd}...`);
+    
     // Spawn the Python process
     const pythonProcess = spawn(pythonCmd, args, {
         stdio: 'inherit',
-        shell: true
+        shell: false  // Don't use shell for better cross-platform compatibility
     });
     
     pythonProcess.on('error', (err) => {
         if (err.code === 'ENOENT') {
-            // Try with 'python' instead
-            const fallbackProcess = spawn('python', args, {
-                stdio: 'inherit',
-                shell: true
-            });
-            
-            fallbackProcess.on('error', (fallbackErr) => {
-                console.error('❌ Error: Python not found. Please install Python 3.8 or higher.');
-                console.error('   Visit: https://python.org/downloads');
-                process.exit(1);
-            });
-            
-            fallbackProcess.on('close', (code) => {
-                process.exit(code);
-            });
+            // Try next command
+            tryPythonCommand(commands, args, index + 1);
         } else {
             console.error('❌ Error running Claude Code Boost:', err.message);
             process.exit(1);
@@ -47,7 +50,14 @@ function runPythonCLI() {
     });
     
     pythonProcess.on('close', (code) => {
-        process.exit(code);
+        if (code === 0) {
+            process.exit(0);
+        } else if (code === 127 || code === 9009) {
+            // Command not found - try next
+            tryPythonCommand(commands, args, index + 1);
+        } else {
+            process.exit(code);
+        }
     });
 }
 

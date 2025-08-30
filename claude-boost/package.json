@@ -1,7 +1,7 @@
 {
   "name": "claude-boost",
-  "version": "1.0.0",
-  "description": "Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again",
+  "version": "1.0.2",
+  "description": "Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again. Full Windows/macOS/Linux compatibility.",
   "main": "claude_boost/cli.js",
   "bin": {
     "claude-boost": "./claude_boost/cli.js"
@@ -42,7 +42,8 @@
   "files": [
     "claude_boost/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "WINDOWS_SETUP.md"
   ],
   "preferGlobal": false
 }

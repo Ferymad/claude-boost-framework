@@ -1,6 +1,6 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-30 14:56:33",
+  "generated_at": "2025-08-30 15:24:56",
   "files": {
     "claude-boost/setup.py": {
       "imports": [
@@ -20,14 +20,15 @@
       "exports": [],
       "functions": [
         "runPythonCLI",
+        "tryPythonCommand",
         "showNodejsHelp"
       ],
       "classes": [],
       "interfaces": [],
       "types": [],
       "path": "claude-boost/claude_boost/cli.js",
-      "size": 2684,
-      "modified": 1756320079.02353
+      "size": 3182,
+      "modified": 1756564002.780843
     },
     "claude-boost/claude_boost/cli.py": {
       "imports": [
@@ -74,35 +75,35 @@
             "features"
           ],
           "returns": null,
-          "line": 78,
+          "line": 83,
           "async": false
         },
         {
           "name": "generate_initial_index",
           "args": [],
           "returns": null,
-          "line": 131,
+          "line": 136,
           "async": false
         },
         {
           "name": "show_next_steps",
           "args": [],
           "returns": null,
-          "line": 151,
+          "line": 156,
           "async": false
         },
         {
           "name": "create_gitignore_entry",
           "args": [],
           "returns": null,
-          "line": 161,
+          "line": 166,
           "async": false
         },
         {
           "name": "main",
           "args": [],
           "returns": null,
-          "line": 179,
+          "line": 184,
           "async": false
         }
       ],
@@ -110,8 +111,8 @@
       "constants": [],
       "exports": [],
       "path": "claude-boost/claude_boost/cli.py",
-      "size": 7570,
-      "modified": 1756320020.9020295
+      "size": 7811,
+      "modified": 1756563697.7479727
     },
     "claude-boost/claude_boost/__init__.py": {
       "imports": [],
@@ -125,22 +126,23 @@
     }
   },
   "summary": {
-    "total_files": 17,
+    "total_files": 19,
     "analyzed_files": 4,
     "languages": {
-      ".md": 6,
+      ".md": 7,
       ".json": 1,
       ".py": 3,
+      ".cmd": 1,
       ".js": 1,
       ".ps1": 1,
       ".sh": 1,
       ".txt": 1,
       ".xml": 1
     },
-    "directories": 5,
-    "total_functions": 11,
+    "directories": 6,
+    "total_functions": 12,
     "total_classes": 0,
     "cached_files": 4,
-    "generation_time_seconds": 0.03
+    "generation_time_seconds": 0.1
   }
 }
