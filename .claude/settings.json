@@ -1,6 +1,45 @@
 {
+  "permissions": {
+    "deny": [
+      "Write(test_*.py)",
+      "Write(experiment_*.py)",
+      "Write(debug_*.py)",
+      "Write(temp_*.py)",
+      "Write(scratch_*.py)",
+      "Write(SESSION_*.md)",
+      "Write(*_SUMMARY.md)",
+      "Write(*_REPORT.md)",
+      "Write(*_ROADMAP.md)",
+      "Write(*_NOTES.md)",
+      "Write(temp_*.txt)",
+      "Write(debug_*.txt)",
+      "Write(output_*.txt)"
+    ],
+    "allow": [
+      "Write(.workspace/**)",
+      "Write(claude-boost/**)",
+      "Write(docs/**)",
+      "Write(.claude/**)"
+    ],
+    "additionalDirectories": [
+      ".workspace/"
+    ]
+  },
+  "env": {
+    "CLAUDE_WORKSPACE_ACTIVE": "true",
+    "CLAUDE_PROJECT_PROTECTION": "enabled"
+  },
   "hooks": {
     "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/workspace-manager.py\""
+          }
+        ]
+      },
       {
         "matcher": "Bash",
         "hooks": [
@@ -42,6 +81,10 @@
     "SessionStart": [
       {
         "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-workspace.py\""
+          },
           {
             "type": "command",
             "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-state-manager.py\""

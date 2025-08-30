@@ -57,3 +57,28 @@ PROJECT_INDEX.json
 # User-specific session data
 .claude/state/last_session.json
 .claude/analytics/usage.jsonl
+
+# WORKSPACE ISOLATION SYSTEM (never commit development artifacts)
+.workspace/
+*.tmp
+*.temp
+
+# Development artifacts that could clutter repository root
+test_*.py
+experiment_*.py  
+debug_*.py
+temp_*.py
+scratch_*.py
+SESSION_*.md
+*_SUMMARY.md
+*_REPORT.md
+*_ROADMAP.md
+*_NOTES.md
+temp_*.txt
+debug_*.txt
+output_*.txt
+
+# Session and planning artifacts
+session-*.json
+planning-*.md
+experiment-*.md
