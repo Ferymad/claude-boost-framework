@@ -1,133 +1,7 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-31 15:07:23",
+  "generated_at": "2025-08-31 15:22:57",
   "files": {
-    "phase4_test_suite.py": {
-      "imports": [
-        "import json",
-        "import os",
-        "import sys",
-        "import subprocess",
-        "import tempfile",
-        "import shutil",
-        "from pathlib import Path",
-        "from datetime import datetime",
-        "from typing import Dict, List, Tuple, Optional"
-      ],
-      "functions": [],
-      "classes": [
-        {
-          "name": "Phase4TestSuite",
-          "methods": [
-            {
-              "name": "__init__",
-              "args": [
-                "self"
-              ],
-              "line": 17
-            },
-            {
-              "name": "log_result",
-              "args": [
-                "self",
-                "test_name",
-                "passed",
-                "message",
-                "details"
-              ],
-              "line": 22
-            },
-            {
-              "name": "run_command",
-              "args": [
-                "self",
-                "cmd",
-                "cwd",
-                "timeout"
-              ],
-              "line": 40
-            },
-            {
-              "name": "test_security_fixes",
-              "args": [
-                "self"
-              ],
-              "line": 52
-            },
-            {
-              "name": "test_version_consistency",
-              "args": [
-                "self"
-              ],
-              "line": 78
-            },
-            {
-              "name": "test_npm_package_readiness",
-              "args": [
-                "self"
-              ],
-              "line": 118
-            },
-            {
-              "name": "test_template_completeness",
-              "args": [
-                "self"
-              ],
-              "line": 153
-            },
-            {
-              "name": "test_issue_templates",
-              "args": [
-                "self"
-              ],
-              "line": 194
-            },
-            {
-              "name": "test_python_package_setup",
-              "args": [
-                "self"
-              ],
-              "line": 217
-            },
-            {
-              "name": "test_documentation_files",
-              "args": [
-                "self"
-              ],
-              "line": 239
-            },
-            {
-              "name": "test_functional_installation",
-              "args": [
-                "self"
-              ],
-              "line": 274
-            },
-            {
-              "name": "run_all_tests",
-              "args": [
-                "self"
-              ],
-              "line": 309
-            },
-            {
-              "name": "generate_report",
-              "args": [
-                "self"
-              ],
-              "line": 341
-            }
-          ],
-          "line": 16,
-          "bases": []
-        }
-      ],
-      "constants": [],
-      "exports": [],
-      "path": "phase4_test_suite.py",
-      "size": 14388,
-      "modified": 1756647810.5927556
-    },
     "benchmarks/benchmark_runner.py": {
       "imports": [
         "import json",
@@ -663,14 +537,13 @@
     }
   },
   "summary": {
-    "total_files": 64,
-    "analyzed_files": 18,
+    "total_files": 62,
+    "analyzed_files": 17,
     "languages": {
-      ".md": 19,
-      ".json": 10,
-      ".py": 17,
+      ".md": 21,
+      ".py": 16,
+      ".json": 8,
       ".sql": 1,
-      ".tgz": 1,
       ".in": 1,
       ".cmd": 2,
       ".js": 1,
@@ -681,8 +554,8 @@
     },
     "directories": 21,
     "total_functions": 17,
-    "total_classes": 6,
-    "cached_files": 18,
-    "generation_time_seconds": 0.53
+    "total_classes": 5,
+    "cached_files": 17,
+    "generation_time_seconds": 0.43
   }
 }
