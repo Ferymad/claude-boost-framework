@@ -1,7 +1,425 @@
 {
   "project_root": "/mnt/c/DEV/004-LeanCode",
-  "generated_at": "2025-08-30 15:24:56",
+  "generated_at": "2025-08-31 15:07:23",
   "files": {
+    "phase4_test_suite.py": {
+      "imports": [
+        "import json",
+        "import os",
+        "import sys",
+        "import subprocess",
+        "import tempfile",
+        "import shutil",
+        "from pathlib import Path",
+        "from datetime import datetime",
+        "from typing import Dict, List, Tuple, Optional"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "Phase4TestSuite",
+          "methods": [
+            {
+              "name": "__init__",
+              "args": [
+                "self"
+              ],
+              "line": 17
+            },
+            {
+              "name": "log_result",
+              "args": [
+                "self",
+                "test_name",
+                "passed",
+                "message",
+                "details"
+              ],
+              "line": 22
+            },
+            {
+              "name": "run_command",
+              "args": [
+                "self",
+                "cmd",
+                "cwd",
+                "timeout"
+              ],
+              "line": 40
+            },
+            {
+              "name": "test_security_fixes",
+              "args": [
+                "self"
+              ],
+              "line": 52
+            },
+            {
+              "name": "test_version_consistency",
+              "args": [
+                "self"
+              ],
+              "line": 78
+            },
+            {
+              "name": "test_npm_package_readiness",
+              "args": [
+                "self"
+              ],
+              "line": 118
+            },
+            {
+              "name": "test_template_completeness",
+              "args": [
+                "self"
+              ],
+              "line": 153
+            },
+            {
+              "name": "test_issue_templates",
+              "args": [
+                "self"
+              ],
+              "line": 194
+            },
+            {
+              "name": "test_python_package_setup",
+              "args": [
+                "self"
+              ],
+              "line": 217
+            },
+            {
+              "name": "test_documentation_files",
+              "args": [
+                "self"
+              ],
+              "line": 239
+            },
+            {
+              "name": "test_functional_installation",
+              "args": [
+                "self"
+              ],
+              "line": 274
+            },
+            {
+              "name": "run_all_tests",
+              "args": [
+                "self"
+              ],
+              "line": 309
+            },
+            {
+              "name": "generate_report",
+              "args": [
+                "self"
+              ],
+              "line": 341
+            }
+          ],
+          "line": 16,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "phase4_test_suite.py",
+      "size": 14388,
+      "modified": 1756647810.5927556
+    },
+    "benchmarks/benchmark_runner.py": {
+      "imports": [
+        "import json",
+        "import time",
+        "import subprocess",
+        "import os",
+        "import shutil",
+        "from pathlib import Path",
+        "from datetime import datetime, timedelta",
+        "from typing import Dict, List, Any, Tuple",
+        "import tempfile"
+      ],
+      "functions": [
+        {
+          "name": "main",
+          "args": [],
+          "returns": null,
+          "line": 564,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "PerformanceBenchmark",
+          "methods": [
+            {
+              "name": "__init__",
+              "args": [
+                "self",
+                "project_root"
+              ],
+              "line": 28
+            },
+            {
+              "name": "run_productivity_benchmark",
+              "args": [
+                "self"
+              ],
+              "line": 42
+            },
+            {
+              "name": "run_duplication_benchmark",
+              "args": [
+                "self"
+              ],
+              "line": 122
+            },
+            {
+              "name": "run_context_usage_benchmark",
+              "args": [
+                "self"
+              ],
+              "line": 233
+            },
+            {
+              "name": "run_session_continuity_benchmark",
+              "args": [
+                "self"
+              ],
+              "line": 285
+            },
+            {
+              "name": "run_task_accuracy_benchmark",
+              "args": [
+                "self"
+              ],
+              "line": 339
+            },
+            {
+              "name": "run_all_benchmarks",
+              "args": [
+                "self"
+              ],
+              "line": 390
+            },
+            {
+              "name": "_calculate_overall_validation",
+              "args": [
+                "self"
+              ],
+              "line": 439
+            },
+            {
+              "name": "_generate_benchmark_report",
+              "args": [
+                "self",
+                "results"
+              ],
+              "line": 462
+            }
+          ],
+          "line": 25,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/benchmark_runner.py",
+      "size": 25622,
+      "modified": 1756639175.478242
+    },
+    "benchmarks/test-data/duplication_test/admin.py": {
+      "imports": [],
+      "functions": [
+        {
+          "name": "check_admin_user",
+          "args": [
+            "username",
+            "password"
+          ],
+          "returns": null,
+          "line": 2,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "AdminService",
+          "methods": [
+            {
+              "name": "validate_admin",
+              "args": [
+                "self",
+                "admin_data"
+              ],
+              "line": 7
+            }
+          ],
+          "line": 6,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/duplication_test/admin.py",
+      "size": 171,
+      "modified": 1756641551.5725558
+    },
+    "benchmarks/test-data/duplication_test/auth.py": {
+      "imports": [],
+      "functions": [
+        {
+          "name": "validate_user",
+          "args": [
+            "username",
+            "password"
+          ],
+          "returns": null,
+          "line": 2,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserValidator",
+          "methods": [
+            {
+              "name": "validate",
+              "args": [
+                "self",
+                "user_data"
+              ],
+              "line": 7
+            }
+          ],
+          "line": 6,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/duplication_test/auth.py",
+      "size": 161,
+      "modified": 1756641551.5685556
+    },
+    "benchmarks/test-data/duplication_test/user_service.py": {
+      "imports": [],
+      "functions": [
+        {
+          "name": "validate_user_data",
+          "args": [
+            "username",
+            "password"
+          ],
+          "returns": null,
+          "line": 2,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataValidator",
+          "methods": [
+            {
+              "name": "validate",
+              "args": [
+                "self",
+                "data"
+              ],
+              "line": 7
+            }
+          ],
+          "line": 6,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/duplication_test/user_service.py",
+      "size": 219,
+      "modified": 1756641551.5715556
+    },
+    "benchmarks/test-data/scenario_authentication_system/auth.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_authentication_system/auth.py",
+      "size": 76,
+      "modified": 1756641038.9177294
+    },
+    "benchmarks/test-data/scenario_authentication_system/auth_tests.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_authentication_system/auth_tests.py",
+      "size": 76,
+      "modified": 1756641038.9265747
+    },
+    "benchmarks/test-data/scenario_authentication_system/middleware.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_authentication_system/middleware.py",
+      "size": 76,
+      "modified": 1756641038.9251728
+    },
+    "benchmarks/test-data/scenario_database_migration/data_transform.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_database_migration/data_transform.py",
+      "size": 78,
+      "modified": 1756641038.934414
+    },
+    "benchmarks/test-data/scenario_database_migration/migration_test.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_database_migration/migration_test.py",
+      "size": 78,
+      "modified": 1756641038.9358408
+    },
+    "benchmarks/test-data/scenario_simple_crud_api/user_model.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_simple_crud_api/user_model.py",
+      "size": 73,
+      "modified": 1756641038.9035878
+    },
+    "benchmarks/test-data/scenario_simple_crud_api/user_routes.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_simple_crud_api/user_routes.py",
+      "size": 73,
+      "modified": 1756641038.9055853
+    },
+    "benchmarks/test-data/scenario_simple_crud_api/user_tests.py": {
+      "imports": [],
+      "functions": [],
+      "classes": [],
+      "constants": [],
+      "exports": [],
+      "path": "benchmarks/test-data/scenario_simple_crud_api/user_tests.py",
+      "size": 73,
+      "modified": 1756641038.9077322
+    },
     "claude-boost/setup.py": {
       "imports": [
         "from setuptools import setup, find_packages",
@@ -12,8 +430,8 @@
       "constants": [],
       "exports": [],
       "path": "claude-boost/setup.py",
-      "size": 2183,
-      "modified": 1756325808.131037
+      "size": 2236,
+      "modified": 1756646609.3529785
     },
     "claude-boost/claude_boost/cli.js": {
       "imports": [],
@@ -27,8 +445,8 @@
       "interfaces": [],
       "types": [],
       "path": "claude-boost/claude_boost/cli.js",
-      "size": 3182,
-      "modified": 1756564002.780843
+      "size": 3189,
+      "modified": 1756649421.2566752
     },
     "claude-boost/claude_boost/cli.py": {
       "imports": [
@@ -59,14 +477,14 @@
           "name": "detect_project_type",
           "args": [],
           "returns": null,
-          "line": 35,
+          "line": 60,
           "async": false
         },
         {
           "name": "get_user_preferences",
           "args": [],
           "returns": null,
-          "line": 50,
+          "line": 75,
           "async": false
         },
         {
@@ -75,35 +493,35 @@
             "features"
           ],
           "returns": null,
-          "line": 83,
+          "line": 108,
           "async": false
         },
         {
           "name": "generate_initial_index",
           "args": [],
           "returns": null,
-          "line": 136,
+          "line": 161,
           "async": false
         },
         {
           "name": "show_next_steps",
           "args": [],
           "returns": null,
-          "line": 156,
+          "line": 181,
           "async": false
         },
         {
           "name": "create_gitignore_entry",
           "args": [],
           "returns": null,
-          "line": 166,
+          "line": 191,
           "async": false
         },
         {
           "name": "main",
           "args": [],
           "returns": null,
-          "line": 184,
+          "line": 209,
           "async": false
         }
       ],
@@ -111,8 +529,8 @@
       "constants": [],
       "exports": [],
       "path": "claude-boost/claude_boost/cli.py",
-      "size": 7811,
-      "modified": 1756563697.7479727
+      "size": 9062,
+      "modified": 1756648286.1489136
     },
     "claude-boost/claude_boost/__init__.py": {
       "imports": [],
@@ -123,26 +541,148 @@
       "path": "claude-boost/claude_boost/__init__.py",
       "size": 394,
       "modified": 1756319989.6290727
+    },
+    "test-installation/verify_installation.py": {
+      "imports": [
+        "import os",
+        "import sys",
+        "import json",
+        "import shutil",
+        "import subprocess",
+        "import tempfile",
+        "from pathlib import Path",
+        "from datetime import datetime",
+        "from typing import Dict, List, Tuple, Optional"
+      ],
+      "functions": [
+        {
+          "name": "main",
+          "args": [],
+          "returns": null,
+          "line": 337,
+          "async": false
+        }
+      ],
+      "classes": [
+        {
+          "name": "InstallationVerifier",
+          "methods": [
+            {
+              "name": "__init__",
+              "args": [
+                "self"
+              ],
+              "line": 21
+            },
+            {
+              "name": "log_result",
+              "args": [
+                "self",
+                "test_name",
+                "status",
+                "message",
+                "details"
+              ],
+              "line": 27
+            },
+            {
+              "name": "run_command",
+              "args": [
+                "self",
+                "cmd",
+                "cwd",
+                "timeout"
+              ],
+              "line": 49
+            },
+            {
+              "name": "check_system_requirements",
+              "args": [
+                "self"
+              ],
+              "line": 66
+            },
+            {
+              "name": "verify_npm_package",
+              "args": [
+                "self",
+                "package_path"
+              ],
+              "line": 109
+            },
+            {
+              "name": "verify_template_files",
+              "args": [
+                "self",
+                "package_path"
+              ],
+              "line": 167
+            },
+            {
+              "name": "test_npm_pack",
+              "args": [
+                "self",
+                "package_path"
+              ],
+              "line": 218
+            },
+            {
+              "name": "test_python_setup",
+              "args": [
+                "self",
+                "package_path"
+              ],
+              "line": 260
+            },
+            {
+              "name": "generate_report",
+              "args": [
+                "self"
+              ],
+              "line": 301
+            },
+            {
+              "name": "save_report",
+              "args": [
+                "self",
+                "report",
+                "output_dir"
+              ],
+              "line": 325
+            }
+          ],
+          "line": 18,
+          "bases": []
+        }
+      ],
+      "constants": [],
+      "exports": [],
+      "path": "test-installation/verify_installation.py",
+      "size": 15572,
+      "modified": 1756640725.7832797
     }
   },
   "summary": {
-    "total_files": 19,
-    "analyzed_files": 4,
+    "total_files": 64,
+    "analyzed_files": 18,
     "languages": {
-      ".md": 7,
-      ".json": 1,
-      ".py": 3,
-      ".cmd": 1,
+      ".md": 19,
+      ".json": 10,
+      ".py": 17,
+      ".sql": 1,
+      ".tgz": 1,
+      ".in": 1,
+      ".cmd": 2,
       ".js": 1,
+      ".txt": 5,
       ".ps1": 1,
-      ".sh": 1,
-      ".txt": 1,
+      ".sh": 2,
       ".xml": 1
     },
-    "directories": 6,
-    "total_functions": 12,
-    "total_classes": 0,
-    "cached_files": 4,
-    "generation_time_seconds": 0.1
+    "directories": 21,
+    "total_functions": 17,
+    "total_classes": 6,
+    "cached_files": 18,
+    "generation_time_seconds": 0.53
   }
 }

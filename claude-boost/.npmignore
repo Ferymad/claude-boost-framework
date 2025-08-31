@@ -1,0 +1,58 @@
+# NPM Ignore File for Claude Boost Package
+# Only include essential files for NPM distribution
+
+# Development files
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+.tox/
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Git files
+.git/
+.gitignore
+
+# Development and testing
+test/
+tests/
+test-installation/
+.travis.yml
+.github/
+pytest.ini
+tox.ini
+
+# Documentation that's not needed in npm
+docs/
+*.md
+!README.md
+
+# Python setup files (npm doesn't need these)
+setup.py
+setup.cfg
+MANIFEST.in
+pyproject.toml
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Only include what's needed for NPM installation
+!claude_boost/
+!LICENSE
+!README.md

@@ -3,7 +3,7 @@
 **Transform your AI development workflow from frustrating to phenomenal**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)](https://github.com/Ferymad/claude-boost-framework)
+[![Beta Ready](https://img.shields.io/badge/Status-Beta%20Ready-orange.svg)](https://github.com/Ferymad/claude-boost-framework)
 [![Framework Agnostic](https://img.shields.io/badge/Framework-Agnostic-blue.svg)](https://github.com/Ferymad/claude-boost-framework)
 
 ## 🎯 One-Line Problem Statement
@@ -14,13 +14,20 @@ This framework solves all three problems with proven methodologies.
 
 ---
 
-## ⚡ 30-Second Quick Start
+## 🚧 Current Status: Production-Ready Beta
+
+**Ready for testing, preparing for NPM publication**
+
+### ⚡ Quick Start (Beta Installation)
 
 ```bash
-npx claude-boost init
+# Beta installation - Full functionality available
+git clone https://github.com/Ferymad/claude-boost-framework
+cd claude-boost-framework
+python setup.py install
 ```
 
-That's it! Your project now has:
+Once installed, your project will have:
 - ✅ **Smart project awareness** (no more duplicate code)  
 - ✅ **Blind validation** (no more false completions)
 - ✅ **70% context rule** (consistent quality throughout sessions)
@@ -38,7 +45,7 @@ That's it! Your project now has:
 | Session Continuity | 20% | >80% | **4x improvement** |
 | Context Quality Degradation | At 50% usage | At 70% usage | **40% more usable context** |
 
-*Metrics based on extensive testing across multiple production projects.*
+*Metrics represent projected improvements based on framework design and initial testing. Currently being validated through beta program.*
 
 ---
 
@@ -260,12 +267,10 @@ your-project/
 
 ## 🛠️ Installation Options
 
-### Option 1: NPM (Recommended)
+### Option 1: NPM (Coming Soon)
 ```bash
-npx claude-boost init
-# or
-npm install -g claude-boost
-claude-boost init
+# NPM publication in progress - beta testing phase
+# Use Git installation method below for now
 ```
 
 ### Option 2: Python/pip
@@ -362,7 +367,7 @@ npx claude-boost init
 - Session continuity
 - 37% faster development
 
-*Join thousands of developers already using CCPES v2.0 to build better software faster.*
+*Join our beta program to help validate and improve CCPES v2.0.*
 
 ---
 

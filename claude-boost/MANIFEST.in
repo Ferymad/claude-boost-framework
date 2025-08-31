@@ -1,0 +1,33 @@
+# MANIFEST.in for Claude Boost Python Package
+# Specifies additional files to include in the Python distribution
+
+# Include essential documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+
+# Include all template files recursively
+recursive-include claude_boost/templates *
+
+# Include package data
+include claude_boost/*.py
+include claude_boost/*.js
+
+# Exclude development files
+exclude *.pyc
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+# Exclude test files
+recursive-exclude test-installation *
+recursive-exclude tests *
+
+# Exclude npm-specific files
+exclude package.json
+exclude package-lock.json
+exclude .npmignore
+
+# Exclude development configs
+exclude .gitignore
+exclude .vscode
+exclude .idea

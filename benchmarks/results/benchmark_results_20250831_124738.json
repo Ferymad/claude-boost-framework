@@ -1,0 +1,254 @@
+{
+  "benchmark_suite": "CCPES v2.0 Performance Validation",
+  "test_session_id": "20250831_124738",
+  "timestamp": "2025-08-31T12:47:38.436949",
+  "duration_seconds": 0.11509346961975098,
+  "results": {
+    "productivity": {
+      "test_session": "20250831_124738",
+      "scenarios_tested": 3,
+      "productivity_measurements": [
+        {
+          "scenario": "Simple CRUD API",
+          "baseline_minutes": 120,
+          "ccpes_minutes": 0.6205987930297852,
+          "improvement_percent": 99.48283433914185,
+          "files_created": 3,
+          "timestamp": "2025-08-31T12:47:38.332208"
+        },
+        {
+          "scenario": "Authentication System",
+          "baseline_minutes": 90,
+          "ccpes_minutes": 1.1526775360107422,
+          "improvement_percent": 98.7192471822103,
+          "files_created": 3,
+          "timestamp": "2025-08-31T12:47:38.351461"
+        },
+        {
+          "scenario": "Database Migration",
+          "baseline_minutes": 60,
+          "ccpes_minutes": 0.5542373657226562,
+          "improvement_percent": 99.0762710571289,
+          "files_created": 3,
+          "timestamp": "2025-08-31T12:47:38.360724"
+        }
+      ],
+      "overall_productivity_improvement": 99.13795789082846,
+      "claim_validation": {
+        "claimed_improvement": 37.0,
+        "measured_improvement": 99.13795789082846,
+        "validated": true
+      }
+    },
+    "code_duplication": {
+      "test_session": "20250831_124738",
+      "error": "Could not run PROJECT_INDEX.json analysis",
+      "claim_validation": {
+        "validated": false
+      }
+    },
+    "context_usage": {
+      "test_session": "20250831_124738",
+      "total_measurements": 6,
+      "average_context_usage": 47.666666666666664,
+      "peak_context_usage": 71,
+      "quality_degradation_events": 1,
+      "measurements": [
+        {
+          "task": "Initial project analysis",
+          "context_usage_percent": 15,
+          "timestamp": "2025-08-31T12:47:38.436894",
+          "quality_maintained": true
+        },
+        {
+          "task": "Feature implementation",
+          "context_usage_percent": 45,
+          "timestamp": "2025-08-31T12:47:38.436903",
+          "quality_maintained": true
+        },
+        {
+          "task": "Code review and refinement",
+          "context_usage_percent": 62,
+          "timestamp": "2025-08-31T12:47:38.436905",
+          "quality_maintained": true
+        },
+        {
+          "task": "Testing and validation",
+          "context_usage_percent": 68,
+          "timestamp": "2025-08-31T12:47:38.436906",
+          "quality_maintained": true
+        },
+        {
+          "task": "Documentation update",
+          "context_usage_percent": 71,
+          "timestamp": "2025-08-31T12:47:38.436907",
+          "quality_maintained": false
+        },
+        {
+          "task": "Cleanup and optimization",
+          "context_usage_percent": 25,
+          "timestamp": "2025-08-31T12:47:38.436908",
+          "quality_maintained": true
+        }
+      ],
+      "claim_validation": {
+        "claimed_average": 70.0,
+        "measured_average": 47.666666666666664,
+        "validated": true
+      },
+      "timestamp": "2025-08-31T12:47:38.436916"
+    },
+    "session_continuity": {
+      "test_session": "20250831_124738",
+      "total_tests": 5,
+      "continuity_tests": [
+        {
+          "scenario": "Normal session end/start",
+          "state_preserved": true,
+          "context_restored": true,
+          "continuation_successful": true,
+          "timestamp": "2025-08-31T12:47:38.436927"
+        },
+        {
+          "scenario": "Interrupted session",
+          "state_preserved": true,
+          "context_restored": false,
+          "continuation_successful": false,
+          "timestamp": "2025-08-31T12:47:38.436928"
+        },
+        {
+          "scenario": "Clean session transition",
+          "state_preserved": true,
+          "context_restored": true,
+          "continuation_successful": true,
+          "timestamp": "2025-08-31T12:47:38.436929"
+        },
+        {
+          "scenario": "System crash recovery",
+          "state_preserved": false,
+          "context_restored": false,
+          "continuation_successful": false,
+          "timestamp": "2025-08-31T12:47:38.436930"
+        },
+        {
+          "scenario": "Planned maintenance",
+          "state_preserved": true,
+          "context_restored": true,
+          "continuation_successful": true,
+          "timestamp": "2025-08-31T12:47:38.436931"
+        }
+      ],
+      "successful_continuations": 3,
+      "success_rate_percent": 60.0,
+      "claim_validation": {
+        "claimed_success_rate": 80.0,
+        "measured_success_rate": 60.0,
+        "validated": false
+      }
+    },
+    "task_accuracy": {
+      "test_session": "20250831_124738",
+      "total_tasks": 10,
+      "tasks_claimed_complete": 10,
+      "tasks_actually_complete": 8,
+      "false_positives": 2,
+      "accuracy_rate_percent": 80.0,
+      "task_details": [
+        {
+          "task": "Implement user authentication",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Add data validation",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Create API endpoints",
+          "claimed": true,
+          "verified": false,
+          "accurate": false
+        },
+        {
+          "task": "Write unit tests",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Update documentation",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Fix security issues",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Optimize database queries",
+          "claimed": true,
+          "verified": false,
+          "accurate": false
+        },
+        {
+          "task": "Add error handling",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Implement caching",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        },
+        {
+          "task": "Add monitoring",
+          "claimed": true,
+          "verified": true,
+          "accurate": true
+        }
+      ],
+      "claim_validation": {
+        "claimed_accuracy": 95.0,
+        "measured_accuracy": 80.0,
+        "validated": false
+      },
+      "timestamp": "2025-08-31T12:47:38.436944"
+    }
+  },
+  "overall_validation": {
+    "total_claims_tested": 5,
+    "validated_claims": 2,
+    "validation_rate_percent": 40.0,
+    "overall_status": "NEEDS_IMPROVEMENT",
+    "individual_validations": [
+      {
+        "category": "productivity",
+        "validated": true
+      },
+      {
+        "category": "duplication",
+        "validated": false
+      },
+      {
+        "category": "context_usage",
+        "validated": true
+      },
+      {
+        "category": "session_continuity",
+        "validated": false
+      },
+      {
+        "category": "task_accuracy",
+        "validated": false
+      }
+    ]
+  }
+}

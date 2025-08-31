@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Tester Dashboard - beta_001 - CCPES v2.0 Metrics</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .status-validated { color: var(--success); }
+        .status-failed { color: var(--danger); }
+        .status-testing { color: var(--warning); }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-success { background: var(--success); }
+        .progress-warning { background: var(--warning); }
+        .progress-danger { background: var(--danger); }
+        
+        .chart-container {
+            margin: 16px 0;
+            padding: 16px;
+            background: var(--background);
+            border-radius: 8px;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .table th {
+            font-weight: 600;
+            background: var(--background);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background: #dcfce7;
+            color: var(--success);
+        }
+        
+        .badge-warning {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+        
+        .badge-danger {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+        
+        .timestamp {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 24px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 12px; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>🧪 Beta Tester Dashboard</h1>
+            <div class="subtitle">Your contribution to CCPES v2.0 validation • Tester ID: beta_001</div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>📊 Your Performance Metrics</h3>
+                <div class="metric">
+                    <div class="metric-label">Days in beta program</div>
+                    <div class="metric-value">18</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Development sessions</div>
+                    <div class="metric-value">45</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Tasks completed</div>
+                    <div class="metric-value">23</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Your productivity improvement</div>
+                    <div class="metric-value status-validated">38.7%</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🎯 Validation Contributions</h3>
+                <div class="metric">
+                    <div class="metric-label">Data points contributed</div>
+                    <div class="metric-value">156</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Issues reported</div>
+                    <div class="metric-value">3</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Feedback surveys completed</div>
+                    <div class="metric-value">3/4</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Community impact score</div>
+                    <div class="metric-value status-validated">High</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>📈 Beta Program Progress</h3>
+            <p><strong>Week 1:</strong> <span class="badge badge-success">Complete</span> - Setup and initial usage</p>
+            <p><strong>Week 2:</strong> <span class="badge badge-success">Complete</span> - Active development metrics</p>
+            <p><strong>Week 3:</strong> <span class="badge badge-warning">In Progress</span> - Advanced features testing</p>
+            <p><strong>Week 4:</strong> <span class="badge">Upcoming</span> - Final validation and feedback</p>
+        </div>
+        
+        
+        <div class="timestamp">
+            Generated: 2025-08-31 12:32:43<br>
+            CCPES v2.0 Metrics Dashboard • Evidence-Based Development
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes if viewing live data
+        if (window.location.search.includes('live=true')) {
+            setTimeout(() => window.location.reload(), 300000);
+        }
+    </script>
+</body>
+</html>

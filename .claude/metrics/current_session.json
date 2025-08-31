@@ -1,0 +1,154 @@
+{
+  "session_id": "97c3e779",
+  "start_time": "2025-08-31T12:55:32.367202",
+  "project_root": "/mnt/c/DEV/004-LeanCode",
+  "metrics": {
+    "productivity": {
+      "tasks_completed": 0,
+      "time_spent_minutes": 0,
+      "context_switches": 0,
+      "feature_completion_times": []
+    },
+    "code_quality": {
+      "files_modified": 0,
+      "duplication_instances": 0,
+      "refactoring_events": 0,
+      "new_vs_modified_ratio": 0.0
+    },
+    "task_accuracy": {
+      "tasks_claimed_complete": 0,
+      "tasks_verified_complete": 0,
+      "validation_failures": 0,
+      "completion_accuracy_rate": 0.0
+    },
+    "context_usage": {
+      "peak_context_usage": 0,
+      "average_context_usage": 0,
+      "context_measurements": [],
+      "quality_degradation_events": 0
+    },
+    "session_continuity": {
+      "successful_continuations": 0,
+      "failed_continuations": 0,
+      "state_preservation_success": 0,
+      "context_restoration_success": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-08-31T12:55:34.039033",
+      "session_id": "97c3e779",
+      "event_type": "git_activity_snapshot",
+      "data": {
+        "commits_made": 10,
+        "files_changed": [
+          ".claude/agents/blind-validator.md",
+          ".claude/agents/code-reviewer.md",
+          ".claude/agents/debugger.md",
+          ".claude/agents/test-runner.md",
+          ".claude/state/last_session.json",
+          "CLAUDE.md",
+          "PROJECT_INDEX.json",
+          "README.md",
+          "claude-boost/.claude/CLAUDE.md",
+          "claude-boost/.claude/agents/blind-validator.md",
+          "claude-boost/.claude/agents/code-reviewer.md",
+          "claude-boost/.claude/agents/debugger.md",
+          "claude-boost/.claude/agents/perf-validator.md",
+          "claude-boost/.claude/agents/performance-optimizer.md",
+          "claude-boost/.claude/agents/security-validator.md",
+          "claude-boost/.claude/agents/system-architect.md",
+          "claude-boost/.claude/agents/test-runner.md",
+          "claude-boost/.claude/agents/ui-validator.md",
+          "claude-boost/.claude/analytics/usage.jsonl",
+          "claude-boost/.claude/cache/project_index_cache.pkl",
+          "claude-boost/.claude/commands/cleanup.md",
+          "claude-boost/.claude/commands/fresh.md",
+          "claude-boost/.claude/commands/validate.md",
+          "claude-boost/.claude/hooks/project-indexer.py",
+          "claude-boost/.claude/hooks/session-manager.py",
+          "claude-boost/.claude/state/last_session.json",
+          "claude-boost/WINDOWS_SETUP.md",
+          "claude-boost/claude_boost/cli.cmd",
+          "claude-boost/claude_boost/cli.js",
+          "claude-boost/claude_boost/cli.py",
+          "claude-boost/package.json",
+          "claude-boost/setup.py"
+        ],
+        "lines_added": 1959,
+        "lines_removed": 168
+      }
+    },
+    {
+      "timestamp": "2025-08-31T12:55:34.056689",
+      "session_id": "97c3e779",
+      "event_type": "code_duplication_error",
+      "data": {
+        "error": "unhashable type: 'dict'"
+      }
+    },
+    {
+      "timestamp": "2025-08-31T12:55:34.075855",
+      "session_id": "97c3e779",
+      "event_type": "code_duplication_error",
+      "data": {
+        "error": "unhashable type: 'dict'"
+      }
+    },
+    {
+      "timestamp": "2025-08-31T12:55:34.089722",
+      "session_id": "97c3e779",
+      "event_type": "code_duplication_error",
+      "data": {
+        "error": "unhashable type: 'dict'"
+      }
+    },
+    {
+      "timestamp": "2025-08-31T12:55:34.106586",
+      "session_id": "97c3e779",
+      "event_type": "report_generated",
+      "data": {
+        "report_file": "/mnt/c/DEV/004-LeanCode/.claude/metrics/reports/metrics_report_20250831_125532.md"
+      }
+    }
+  ],
+  "git_activity": {
+    "commits_made": 10,
+    "files_changed": [
+      ".claude/agents/blind-validator.md",
+      ".claude/agents/code-reviewer.md",
+      ".claude/agents/debugger.md",
+      ".claude/agents/test-runner.md",
+      ".claude/state/last_session.json",
+      "CLAUDE.md",
+      "PROJECT_INDEX.json",
+      "README.md",
+      "claude-boost/.claude/CLAUDE.md",
+      "claude-boost/.claude/agents/blind-validator.md",
+      "claude-boost/.claude/agents/code-reviewer.md",
+      "claude-boost/.claude/agents/debugger.md",
+      "claude-boost/.claude/agents/perf-validator.md",
+      "claude-boost/.claude/agents/performance-optimizer.md",
+      "claude-boost/.claude/agents/security-validator.md",
+      "claude-boost/.claude/agents/system-architect.md",
+      "claude-boost/.claude/agents/test-runner.md",
+      "claude-boost/.claude/agents/ui-validator.md",
+      "claude-boost/.claude/analytics/usage.jsonl",
+      "claude-boost/.claude/cache/project_index_cache.pkl",
+      "claude-boost/.claude/commands/cleanup.md",
+      "claude-boost/.claude/commands/fresh.md",
+      "claude-boost/.claude/commands/validate.md",
+      "claude-boost/.claude/hooks/project-indexer.py",
+      "claude-boost/.claude/hooks/session-manager.py",
+      "claude-boost/.claude/state/last_session.json",
+      "claude-boost/WINDOWS_SETUP.md",
+      "claude-boost/claude_boost/cli.cmd",
+      "claude-boost/claude_boost/cli.js",
+      "claude-boost/claude_boost/cli.py",
+      "claude-boost/package.json",
+      "claude-boost/setup.py"
+    ],
+    "lines_added": 1959,
+    "lines_removed": 168
+  }
+}
