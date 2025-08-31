@@ -1,14 +1,14 @@
 {
   "name": "claude-boost",
-  "version": "1.0.2",
-  "description": "Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again. Full Windows/macOS/Linux compatibility.",
+  "version": "0.9.0-beta",
+  "description": "[BETA] Claude Code Performance Enhancement System - Advanced framework for AI development with project awareness, blind validation, and workflow automation. Beta testing in progress.",
   "main": "claude_boost/cli.js",
   "bin": {
     "claude-boost": "./claude_boost/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "echo '🚀 Claude Code Boost installed! Run: claude-boost init'"
+    "postinstall": "echo '🧪 Claude Code Boost BETA installed! This is a pre-release version. Run: claude-boost init'"
   },
   "keywords": [
     "claude",
@@ -42,8 +42,10 @@
   "files": [
     "claude_boost/",
     "README.md",
-    "LICENSE",
-    "WINDOWS_SETUP.md"
+    "LICENSE"
   ],
-  "preferGlobal": false
+  "preferGlobal": false,
+  "publishConfig": {
+    "tag": "beta"
+  }
 }

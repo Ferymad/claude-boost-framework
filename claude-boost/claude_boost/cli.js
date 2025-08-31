@@ -63,7 +63,7 @@ function tryPythonCommand(commands, args, index) {
 
 // Show help if no Python available
 function showNodejsHelp() {
-    console.log('🚀 Claude Code Boost v1.0');
+    console.log('🧪 Claude Code Boost v0.9.0-beta');
     console.log('');
     console.log('This tool requires Python 3.8 or higher to run.');
     console.log('');

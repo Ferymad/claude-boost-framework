@@ -13,8 +13,8 @@ from typing import Dict, List, Optional
 
 def print_header():
     """Print the welcome header"""
-    print("\n🚀 Claude Code Boost v1.0 - Supercharge your AI development")
-    print("=" * 60)
+    print("\n🧪 Claude Code Boost v0.9.0-beta - AI Development Enhancement Framework")
+    print("=" * 70)
 
 def check_claude_code():
     """Check if Claude Code is available with cross-platform support"""
@@ -180,13 +180,13 @@ def generate_initial_index():
 
 def show_next_steps():
     """Show next steps to the user"""
-    print("\n🎉 Success! Claude Code Boost installed")
+    print("\n🎉 Success! Claude Code Boost BETA installed")
     print("\nQuick start:")
     print("  1. Run: claude --continue")
     print("  2. Type: /fresh")
-    print("  3. Start coding with 37% productivity boost!")
-    print("\nDocumentation: https://claude-boost.dev")
-    print("Community: https://discord.gg/claude-boost")
+    print("  3. Start coding with enhanced AI development!")
+    print("\nDocumentation: https://github.com/Ferymad/claude-boost-framework#readme")
+    print("Beta Support: https://github.com/Ferymad/claude-boost-framework/issues")
 
 def create_gitignore_entry():
     """Add PROJECT_INDEX.json to .gitignore if it exists"""

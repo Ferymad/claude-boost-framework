@@ -7,10 +7,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="claude-boost",
-    version="1.0.0",
+    version="0.9.0-beta",
     author="Claude Code Boost Team",
     author_email="hello@claude-boost.dev",
-    description="Supercharge Claude Code with one command - Get 37% productivity boost, <5% code duplication, and never lose context again",
+    description="[BETA] Claude Code Performance Enhancement System - Advanced framework for AI development with project awareness, blind validation, and workflow automation. Beta testing in progress.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Ferymad/claude-boost-framework",
@@ -22,7 +22,7 @@ setup(
     },
     packages=find_packages(),
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Code Generators",
