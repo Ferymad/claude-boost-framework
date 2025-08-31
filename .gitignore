@@ -82,3 +82,7 @@ output_*.txt
 session-*.json
 planning-*.md
 experiment-*.md
+# Build and test artifacts
+*.tgz
+*test_report.json
+phase*_test_suite.py
